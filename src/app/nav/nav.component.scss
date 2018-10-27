@@ -1,0 +1,33 @@
+$main-theme-color: hsl(225, 20%, 30%);
+
+header{
+    background-color: $main-theme-color;
+    height: 100%;
+    a:link,
+    a:visited{
+        color: white;
+        display: block;
+        text-decoration: none;
+        padding: .8em;
+    }
+    a:hover,
+    a:focus,
+    a:active{
+        background-color: darken($main-theme-color, 5%);
+    }
+}
+
+#header-link{
+    display: flex;
+    align-items: center;
+    font-size: 5em;
+    justify-content: center;
+    padding: 1rem 0;
+    &:hover,&:focus,&:active{
+        background-color: inherit;
+    }
+}
+
+ul{
+    list-style-type: none;
+}
