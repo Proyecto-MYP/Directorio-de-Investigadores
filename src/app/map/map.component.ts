@@ -10,7 +10,8 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const $mapa = document.querySelector('#mapa>svg');
+    const $mapa = document.getElementsByTagName('svg')[0]
+    const $estados = document.getElementsByClassName('mx-edo');
     const $etiqueta = document.getElementById('etiqueta');
     const estados = {
         "AS": "Aguascalientes",
@@ -46,11 +47,13 @@ export class MapComponent implements OnInit {
         "YN": "Yucatán",
         "ZS": "Zacatecas"
     }
+
     $mapa.addEventListener('mouseover', function(evt){
-      var key = evt.target.getAttribute('data-key');
+      var target = evt.target as HTMLElement;
+      var key = target.dataset.key;
       var edo = estados[key];
       $etiqueta.innerText = edo ? edo : '';
-  });
-}
+    });
 
+  }
 }
