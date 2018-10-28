@@ -6,7 +6,13 @@ $main-theme-color: hsl(225, 20%, 30%);
 }
 
 html{
+    background: url('assets/img/dust_scratches.png');
     color: #333;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
+}
+
+p{
+    line-height: 1.3em;
+    margin-bottom: 8pt;
 }
