@@ -1,13 +1,5 @@
 $main-theme-color: hsl(225, 20%, 30%);
 
-#etiqueta{
-    bottom: 1em;
-    color: $main-theme-color;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
-    left: 1em;
-    position: absolute;
-}
 #mapa{
     display: block;
     margin: 1rem auto;
@@ -15,14 +7,23 @@ $main-theme-color: hsl(225, 20%, 30%);
     position: relative;
     max-width: 800px;
     width: 80%;
+    .mx-edo{
+        stroke: white;
+        stroke-width: 3px;
+        fill: $main-theme-color;
+        transition: fill .4s;
+        &:hover{
+            cursor: pointer;
+            fill: lighten($main-theme-color, 15%);
+        }
+    }
 }
-#mapa svg .mx-edo{
-    stroke: white;
-    stroke-width: 3px;
-    fill: $main-theme-color;
-    transition: fill .4s;
-}
-#mapa svg .mx-edo:hover{
-    cursor: pointer;
-    fill: lighten($main-theme-color, 15%);
+
+#etiqueta{
+    bottom: 1em;
+    color: $main-theme-color;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    left: 1em;
+    position: absolute;
 }
