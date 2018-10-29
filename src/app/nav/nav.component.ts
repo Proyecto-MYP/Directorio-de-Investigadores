@@ -12,6 +12,7 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if(localStorage.getItem('remNav')) this.toogleNav();
   }
 
   toogleNav(){
@@ -24,6 +25,7 @@ export class NavComponent implements OnInit {
 
     if(this.contracted){
       // Contraer el nav
+      localStorage.setItem('remNav', '1');
       $header.style.width = 'auto';
       $caret.innerHTML = '<i class="fas fa-caret-right"></i>';
       $headerLink.classList.add('hidden');
@@ -33,6 +35,7 @@ export class NavComponent implements OnInit {
       }
     }else{
       // Expandir el nav
+      localStorage.removeItem('remNav');
       $header.style.width = '15rem';
       $caret.innerHTML = '<i class="fas fa-caret-left"></i>';
       $headerLink.classList.remove('hidden');
