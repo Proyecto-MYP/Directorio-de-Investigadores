@@ -5,6 +5,7 @@ header{
     flex-direction: row;
     height: 100vh;
     overflow: hidden;
+    width: 15rem;
     a:link,
     a:visited{
         color: white;
@@ -35,10 +36,6 @@ header{
     }
 }
 
-ul{
-    list-style-type: none;
-}
-
 .nav-label{
     padding-left: 0.8rem;
 }
@@ -56,4 +53,12 @@ ul{
             background-color: darken($main-theme-color, 10%);
         }
     }
+}
+
+ul{
+    list-style-type: none;
+}
+
+.nav-contracted{
+    width: 2.8rem !important;
 }

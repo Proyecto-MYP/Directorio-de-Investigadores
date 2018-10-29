@@ -1,11 +1,7 @@
 #app{
     display: flex;
     height: 100vh;
-    app-nav{
-        min-width: 10rem;
-        max-width: 15rem;
-        width: 25%;
-    }
+
     #app-main{
         box-sizing: border-box;
         padding: .5em;
