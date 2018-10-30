@@ -1,4 +1,13 @@
-# Redinv
+# Red de Investigadores
+
+## Instalación del espacio de trabajo
+1. Instalar [node.js y npm](https://nodejs.org/en/download/)
+2. Instalar globalmente [angular-cli](https://cli.angular.io/) con el comando `$ sudo npm install @angular/cli`
+3. Descargar o clonar este repositorio
+4. Dentro del directorio raíz del proyecto ejecutar `$ npm install` para descargar las dependencias del proyecto
+5. `$ ng serve -o` para visualizar en el navegador
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
 
