@@ -9,6 +9,7 @@ html{
     color: $text-color;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
+    text-align: justify;
 }
 
 p{
@@ -19,6 +20,7 @@ p{
 h1, h2, h3, h4, h5, h6{
     color: $main-theme-color;
     margin-bottom: 8pt;
+    text-align: left;
 }
 
 .hidden{

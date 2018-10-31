@@ -3,8 +3,10 @@
 #bars{
     background-color: $main-theme-color;
     display: block;
+    height: 3rem;
     padding: .5rem;
     position: fixed;
+    top: 0;
     width: 100%;
     @media(min-width: $md){
         display: none;
@@ -25,8 +27,16 @@
     border: solid 2px white;
     border-radius: 5px;
     color: white;
+    cursor: pointer;
     font-size: 1.2rem;
     padding: .5em .6em;
+    outline: none;
+    &:hover{
+        background-color: darken($main-theme-color, 5%);
+    }
+    &:active{
+        background-color: lighten($main-theme-color, 5%);
+    }
 }
 
 header{
@@ -47,6 +57,10 @@ header{
         display: block;
         text-decoration: none;
         padding: .8em;
+        @media (max-width: $md) {
+            font-size: 1.3rem;
+            padding: 1.5em 0.8em;
+        }
     }
 }
 
@@ -100,11 +114,22 @@ ul{
 }
 
 .contracted{
-    position: relative;
-    text-align: center;
-    width: 3.9rem !important;
-    #header-link,
-    .nav-label{
+    @media(min-width: $md){
+        position: relative;
+        text-align: center;
+        width: 3.9rem !important;
+        #header-link,
+        .nav-label{
+            display: none !important;
+        }
+    }
+}
+
+.show{
+    margin: 0;
+    margin-top: 4rem;
+    height: calc(100vh - 4rem);
+    #header-link{
         display: none !important;
     }
 }

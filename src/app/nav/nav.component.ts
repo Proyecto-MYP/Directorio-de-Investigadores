@@ -12,10 +12,10 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if(localStorage.getItem('remNav')) this.toogleNav();
+    if(localStorage.getItem('remNav')) this.toggleNav();
   }
 
-  toogleNav(){
+  toggleNav(){
     this.contracted = !this.contracted;
     let $header:HTMLElement = document.getElementsByTagName('header')[0];
     let $caret:HTMLElement = document.querySelector('#contract-btn>a');
@@ -32,6 +32,11 @@ export class NavComponent implements OnInit {
       $caret.innerHTML = '<i class="fas fa-caret-left"></i>';
     }
     return false;
+  }
+
+  showResponsiveMenu(){
+    let $header:HTMLElement = document.getElementsByTagName('header')[0];
+    $header.classList.toggle('show');
   }
 
 }
