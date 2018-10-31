@@ -1,11 +1,17 @@
+@import '../variables';
+
 #app{
     display: flex;
     height: 100vh;
 
     #app-main{
         box-sizing: border-box;
+        margin-top: 4rem;
         padding: .8rem;
         overflow-y: scroll;
         width: 100%;
+        @media (min-width: $md){
+            margin-top: 0;
+        }
     }
 }

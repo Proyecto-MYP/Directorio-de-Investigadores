@@ -1,7 +1,10 @@
 @import '../../variables';
 
 #mapa{
-    display: block;
+    @media(min-width: $md){
+        display: block;
+    }
+    display: none;
     margin: 1rem auto;
     padding: 0;
     position: relative;
