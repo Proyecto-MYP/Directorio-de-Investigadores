@@ -26,23 +26,13 @@ export class NavComponent implements OnInit {
     if(this.contracted){
       // Contraer el nav
       localStorage.setItem('remNav', '1');
-      $header.style.width = 'auto';
+      $header.classList.add('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-right"></i>';
-      $headerLink.classList.add('hidden');
-      $mainNav.classList.add('nav-contracted');
-      for(let i=0; i < $labels.length; i++){
-        $labels[i].classList.add('hidden');
-      }
     }else{
       // Expandir el nav
       localStorage.removeItem('remNav');
-      $header.style.width = '15rem';
+      $header.classList.remove('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-left"></i>';
-      $headerLink.classList.remove('hidden');
-      $mainNav.classList.remove('nav-contracted');
-      for(let i=0; i < $labels.length; i++){
-        $labels[i].classList.remove('hidden');
-      }
     }
     return false;
   }

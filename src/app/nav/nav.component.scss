@@ -99,6 +99,12 @@ ul{
     list-style-type: none;
 }
 
-.nav-contracted{
-    width: 2.8rem !important;
+.contracted{
+    position: relative;
+    text-align: center;
+    width: 3.9rem !important;
+    #header-link,
+    .nav-label{
+        display: none !important;
+    }
 }
