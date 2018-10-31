@@ -18,9 +18,6 @@ export class NavComponent implements OnInit {
   toogleNav(){
     this.contracted = !this.contracted;
     let $header:HTMLElement = document.getElementsByTagName('header')[0];
-    let $headerLink:HTMLElement = document.getElementById('header-link');
-    let $mainNav:HTMLElement = document.getElementById('main-nav');
-    let $labels:HTMLCollection = document.getElementsByClassName('nav-label');
     let $caret:HTMLElement = document.querySelector('#contract-btn>a');
 
     if(this.contracted){
