@@ -1,38 +1,52 @@
 @import '../../variables.scss';
 
 header{
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
+    display: block;
+    height: 0;
     overflow: hidden;
-    width: 15rem;
+    width: 100%;
+    @media(min-width: $md){
+        display: flex;
+        height: 100vh;
+        flex-direction: row;
+        margin: 0;
+        width: 13rem;
+    }
     a:link,
     a:visited{
         color: white;
         display: block;
         text-decoration: none;
         padding: .8em;
+        @media (max-width: $md) {
+            font-size: 1.3rem;
+            padding: 1.5em 0.8em;
+            overflow-y: auto;
+        }
     }
 }
 
 #main-nav{
     background-color: $main-theme-color;
-    height: 100%;
     width: 100%;
+    @media(min-width: $md){
+        height: 100%;
+    }
     a:hover,
     a:focus,
     a:active{
         background-color: darken($main-theme-color, 5%);
     }
-    #header-link{
-        align-items: center;
-        display: flex;
-        font-size: 5em;
-        justify-content: center;
-        padding: 1.5rem 0;
-        &:hover,&:focus,&:active{
-            background-color: inherit;
-        }
+}
+
+#main-nav #header-link{
+    align-items: center;
+    display: flex;
+    font-size: 5em;
+    justify-content: center;
+    padding: 1.5rem 0;
+    &:hover,&:focus,&:active{
+        background-color: inherit;
     }
 }
 
@@ -41,16 +55,20 @@ header{
 }
 
 #contract-btn{
-    background-color: darken($main-theme-color, 5%);
-    width: 1rem;
-    a{
-        align-items: center;
-        display: flex;
-        height: 100vh;
-        justify-content: center;
-        padding: 0;
-        &:hover{
-            background-color: darken($main-theme-color, 10%);
+    display: none;
+    @media(min-width: $md){
+        background-color: darken($main-theme-color, 5%);
+        display: block;
+        width: 1rem;
+        a{
+            align-items: center;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            padding: 0;
+            &:hover{
+                background-color: darken($main-theme-color, 10%);
+            }
         }
     }
 }
@@ -59,6 +77,63 @@ ul{
     list-style-type: none;
 }
 
-.nav-contracted{
-    width: 2.8rem !important;
+#bars{
+    background-color: $main-theme-color;
+    display: block;
+    height: 3rem;
+    padding: .5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    @media(min-width: $md){
+        display: none;
+        position: relative;
+    }
+    h1{
+        color: white;
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: normal;
+        margin-left: 1rem;
+        margin-bottom: 0;
+    }
+}
+
+#bars-btn{
+    background-color: transparent;
+    border: solid 2px white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: .5em .6em;
+    outline: none;
+    &:hover{
+        background-color: darken($main-theme-color, 5%);
+    }
+    &:active{
+        background-color: lighten($main-theme-color, 5%);
+    }
+}
+
+.contracted{
+    @media(min-width: $md){
+        position: relative;
+        text-align: center;
+        width: 3.9rem !important;
+        #header-link,
+        .nav-label{
+            display: none !important;
+        }
+    }
+}
+
+.show{
+    margin: 0;
+    margin-top: 4rem;
+    margin-bottom: -4rem;
+    height: auto;
+    #header-link{
+        display: none !important;
+    }
 }

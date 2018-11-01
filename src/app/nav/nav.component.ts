@@ -12,39 +12,41 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    if(localStorage.getItem('remNav')) this.toogleNav();
+    if(localStorage.getItem('remNav')) this.toggleNav();
+    onresize = this.onResize;
   }
 
-  toogleNav(){
+  toggleNav(){
     this.contracted = !this.contracted;
     let $header:HTMLElement = document.getElementsByTagName('header')[0];
-    let $headerLink:HTMLElement = document.getElementById('header-link');
-    let $mainNav:HTMLElement = document.getElementById('main-nav');
-    let $labels:HTMLCollection = document.getElementsByClassName('nav-label');
     let $caret:HTMLElement = document.querySelector('#contract-btn>a');
 
     if(this.contracted){
       // Contraer el nav
       localStorage.setItem('remNav', '1');
-      $header.style.width = 'auto';
+      $header.classList.add('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-right"></i>';
-      $headerLink.classList.add('hidden');
-      $mainNav.classList.add('nav-contracted');
-      for(let i=0; i < $labels.length; i++){
-        $labels[i].classList.add('hidden');
-      }
     }else{
       // Expandir el nav
       localStorage.removeItem('remNav');
-      $header.style.width = '15rem';
+      $header.classList.remove('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-left"></i>';
-      $headerLink.classList.remove('hidden');
-      $mainNav.classList.remove('nav-contracted');
-      for(let i=0; i < $labels.length; i++){
-        $labels[i].classList.remove('hidden');
-      }
     }
     return false;
+  }
+
+  showResponsiveMenu(){
+    let $header:HTMLElement = document.getElementsByTagName('header')[0];
+    $header.classList.toggle('show');
+  }
+
+  onResize(){
+    let $header:HTMLElement = document.getElementsByTagName('header')[0];
+    if(innerWidth < 768){
+      $header.classList.remove('contracted');
+    }else{
+      $header.classList.remove('show');
+    }
   }
 
 }
