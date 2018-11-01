@@ -13,6 +13,7 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     if(localStorage.getItem('remNav')) this.toggleNav();
+    onresize = this.onResize;
   }
 
   toggleNav(){
@@ -37,6 +38,15 @@ export class NavComponent implements OnInit {
   showResponsiveMenu(){
     let $header:HTMLElement = document.getElementsByTagName('header')[0];
     $header.classList.toggle('show');
+  }
+
+  onResize(){
+    let $header:HTMLElement = document.getElementsByTagName('header')[0];
+    if(innerWidth < 768){
+      $header.classList.remove('contracted');
+    }else{
+      $header.classList.remove('show');
+    }
   }
 
 }

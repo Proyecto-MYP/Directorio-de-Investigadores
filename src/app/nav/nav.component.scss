@@ -1,55 +1,16 @@
 @import '../../variables.scss';
 
-#bars{
-    background-color: $main-theme-color;
-    display: block;
-    height: 3rem;
-    padding: .5rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    @media(min-width: $md){
-        display: none;
-        position: relative;
-    }
-    h1{
-        color: white;
-        display: inline-block;
-        font-size: 1.6rem;
-        font-weight: normal;
-        margin-left: 1rem;
-        margin-bottom: 0;
-    }
-}
-
-#bars-btn{
-    background-color: transparent;
-    border: solid 2px white;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 1.2rem;
-    padding: .5em .6em;
-    outline: none;
-    &:hover{
-        background-color: darken($main-theme-color, 5%);
-    }
-    &:active{
-        background-color: lighten($main-theme-color, 5%);
-    }
-}
-
 header{
     display: block;
-    margin-left: -15rem;
     height: 0;
     overflow: hidden;
-    width: 15rem;
+    width: 100%;
     @media(min-width: $md){
         display: flex;
         height: 100vh;
         flex-direction: row;
         margin: 0;
+        width: 13rem;
     }
     a:link,
     a:visited{
@@ -60,14 +21,17 @@ header{
         @media (max-width: $md) {
             font-size: 1.3rem;
             padding: 1.5em 0.8em;
+            overflow-y: auto;
         }
     }
 }
 
 #main-nav{
     background-color: $main-theme-color;
-    height: 100%;
     width: 100%;
+    @media(min-width: $md){
+        height: 100%;
+    }
     a:hover,
     a:focus,
     a:active{
@@ -113,6 +77,45 @@ ul{
     list-style-type: none;
 }
 
+#bars{
+    background-color: $main-theme-color;
+    display: block;
+    height: 3rem;
+    padding: .5rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    @media(min-width: $md){
+        display: none;
+        position: relative;
+    }
+    h1{
+        color: white;
+        display: inline-block;
+        font-size: 1.6rem;
+        font-weight: normal;
+        margin-left: 1rem;
+        margin-bottom: 0;
+    }
+}
+
+#bars-btn{
+    background-color: transparent;
+    border: solid 2px white;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: .5em .6em;
+    outline: none;
+    &:hover{
+        background-color: darken($main-theme-color, 5%);
+    }
+    &:active{
+        background-color: lighten($main-theme-color, 5%);
+    }
+}
+
 .contracted{
     @media(min-width: $md){
         position: relative;
@@ -128,7 +131,8 @@ ul{
 .show{
     margin: 0;
     margin-top: 4rem;
-    height: calc(100vh - 4rem);
+    margin-bottom: -4rem;
+    height: auto;
     #header-link{
         display: none !important;
     }

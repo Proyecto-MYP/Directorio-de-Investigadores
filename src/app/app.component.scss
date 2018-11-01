@@ -1,8 +1,11 @@
 @import '../variables';
 
 #app{
-    display: flex;
-    height: 100vh;
+    display: block;
+    @media(min-width: $md){
+        display: flex;
+        height: 100vh;
+    }
 
     #app-main{
         box-sizing: border-box;
