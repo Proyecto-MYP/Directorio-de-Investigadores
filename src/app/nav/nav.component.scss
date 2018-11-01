@@ -82,9 +82,9 @@ ul{
     display: block;
     height: 3rem;
     padding: .5rem;
-    position: fixed;
+    position: absolute;
     top: 0;
-    width: 100%;
+    width: calc(100vw - 1rem);
     @media(min-width: $md){
         display: none;
         position: relative;

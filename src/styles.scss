@@ -23,6 +23,26 @@ h1, h2, h3, h4, h5, h6{
     text-align: left;
 }
 
+.form-control{
+    background-color: $gris-claro;
+    border: solid 1px $main-theme-color;
+    border-radius: 5px;
+    padding: .5rem 0.8rem;
+    margin: 0 .3rem;
+}
+
+.btn{
+    background-color: transparent;
+    border: solid 2px $main-theme-color;
+    border-radius: 5px;
+    color: $main-theme-color;
+    cursor: pointer;
+    padding: .5rem;
+    &:hover{
+        background-color: lighten($main-theme-color, 5%);
+    }
+}
+
 .hidden{
     display: none !important;
 }
