@@ -11,8 +11,8 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     const $mapa = document.getElementsByTagName('svg')[0]
-    const $estados = document.getElementsByClassName('mx-edo');
     const $etiqueta = document.getElementById('etiqueta');
+    const $estadosSelect = document.getElementById('estadoSelect') as HTMLSelectElement;
     const estados = {
         "AS": "Aguascalientes",
         "BC": "Baja California",
@@ -48,11 +48,33 @@ export class MapComponent implements OnInit {
         "ZS": "Zacatecas"
     }
 
+    // Poblar el select con los estados
+    for(let key in estados){
+      let $option = document.createElement('option');
+      $option.value = key;
+      $option.text = estados[key];
+      $estadosSelect.add($option, null);
+    }
+    
+    // Mostrar el estado en la etiqueta
     $mapa.addEventListener('mouseover', function(evt){
       var target = evt.target as HTMLElement;
       var key = target.dataset.key;
       var edo = estados[key];
       $etiqueta.innerText = edo ? edo : '';
+    });
+    
+    // Enviar formulario al hacer clic en un edo
+    $mapa.addEventListener('click', function(evt){
+      var $formulario = document.getElementById('mapaForm') as HTMLFormElement;
+      var target = evt.target as HTMLElement;
+      var key = target.dataset.key;
+      if(key){
+        console.log(key);
+        $estadosSelect.value = key;
+        $formulario.submit();
+      }
+      
     });
 
   }
