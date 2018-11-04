@@ -19,7 +19,6 @@ Luego instalar las dependencias con pip
 
 Primero hay que hacer las migraciones a la base de datos
 
-      $python manage.py makemigrations polls
       $python manage.py migrate
 
 Y para correr el servidor de desarrollo
