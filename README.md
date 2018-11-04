@@ -6,12 +6,13 @@ Para correr el proyecto, hay que clonar el repositorio,
 
 ## Dependencias
 
-Se recomiendo usar virtualenv para manejar dependencias.
+Se recomiendo usar [virtualenv](https://virtualenv.pypa.io/en/latest/) para
+manejar dependencias.
 
       $virtualenv -p python3 projectEnv
       $source projectEnv/bin/activate
 
-Luego instalar las dependencias con pip
+Luego instalar las dependencias
 
       $pip install -r requirements
 
@@ -27,5 +28,6 @@ Y para correr el servidor de desarrollo
 
 ## Base de datos
 
-De momento, es necesario ya tener instalado PostgreSQL con una base de datos
-llamada 'project' con un usuario 'admin' con contraseña 'admin'.
+De momento, es necesario ya tener instalado [PostgreSQL](https://www.postgresql.org/)
+con una base de datos llamada 'project' con un usuario 'admin' con contraseña
+'admin'.
