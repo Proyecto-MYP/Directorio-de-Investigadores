@@ -1,6 +1,6 @@
 # Backend
 
-Para correr el proyecto, hay quu clonar el repositorio,
+Para correr el proyecto, hay que clonar el repositorio,
 
       $git clone https://github.com/Proyecto-MYP/Backend
 
@@ -9,6 +9,7 @@ Para correr el proyecto, hay quu clonar el repositorio,
 Se recomiendo usar virtualenv para manejar dependencias.
 
       $virtualenv -p python3 projectEnv
+      $source projectEnv/bin/activate
 
 Luego instalar las dependencias con pip
 
