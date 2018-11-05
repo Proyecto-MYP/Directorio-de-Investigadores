@@ -1,16 +1,17 @@
-from django.urls import path
-
+from django.urls import path, include
+from rest_framework import routers
 from . import views
 
+router = routers.DefaultRouter()
+router.register(r'person', views.PersonViewSet)
+router.register(r'institution', views.InstitutionViewSet)
+router.register(r'group', views.GroupViewSet)
+router.register(r'branch', views.BranchViewSet)
+router.register(r'article', views.ArticleViewSet)
+router.register(r'department', views.DepartmentViewSet)
+router.register(r'researcher', views.ResearcherViewSet)
+router.register(r'student', views.StudentViewSet)
+
 urlpatterns = [
-    # ex: /polls/
-    path('', views.index, name='index'),
-    path('saveInstitucion', views.save_institution, name='saveInstitucion'),
-    path('institucion', views.get_institution, name='institucion'),
-    # ex: /polls/5/
-    #path('<int:question_id>/', views.detail, name='detail'),
-    # ex: /polls/5/results/
-    #path('<int:question_id>/results/', views.results, name='results'),
-    # ex: /polls/5/vote/
-    #path('<int:question_id>/vote/', views.vote, name='vote'),
+    path('', include(router.urls))
 ]

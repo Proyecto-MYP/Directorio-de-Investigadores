@@ -1,33 +1,35 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from . import models
+from . import serializers
 
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
-from polls.models import *
-from  django.db import connection
-#from polls.serializers import *
+class PersonViewSet(viewsets.ModelViewSet):
+    queryset = models.Person.objects.all()
+    serializer_class = serializers.PersonSerializer
 
-#class JSONResponse(HttpResponse):
-#    """
-#    An HttpResponse that renders its content into JSON.
-#    """
-#    def __init__(self, data, **kwargs):
-#        content = JSONRenderer().render(data)
-#        kwargs['content_type'] = 'application/json'
-#        super(JSONResponse, self).__init__(content, **kwargs)
-def index(request):
-    cursor = connection.cursor()
-    cursor.execute("select * from polls_article")
-    row = cursor.fetchall()
-    return HttpResponse(row)
+class InstitutionViewSet(viewsets.ModelViewSet):
+    queryset = models.Institution.objects.all()
+    serializer_class = serializers.InstitutionSerializer
 
-@csrf_exempt
-def save_institution(request):
-    b = Institution(name=request.POST['name'])
-    b.save()
-    return HttpResponse("OK")
+class GroupViewSet(viewsets.ModelViewSet):
+    queryset = models.Group.objects.all()
+    serializer_class = serializers.GroupSerializer
 
-def get_institution(request):
-    b = Institution.objects.all().count()
-    return HttpResponse(b)
+class BranchViewSet(viewsets.ModelViewSet):
+    queryset = models.Branch.objects.all()
+    serializer_class = serializers.BranchSerializer
+
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = models.Article.objects.all()
+    serializer_class = serializers.ArticleSerializer
+
+class DepartmentViewSet(viewsets.ModelViewSet):
+    queryset = models.Department.objects.all()
+    serializer_class = serializers.DepartmentSerializer
+
+class ResearcherViewSet(viewsets.ModelViewSet):
+    queryset = models.Researcher.objects.all()
+    serializer_class = serializers.ResearcherSerializer
+
+class StudentViewSet(viewsets.ModelViewSet):
+    queryset = models.Student.objects.all()
+    serializer_class = serializers.StudentSerializer
