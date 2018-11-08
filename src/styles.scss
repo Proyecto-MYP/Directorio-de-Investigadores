@@ -21,6 +21,7 @@ h1, h2, h3, h4, h5, h6{
     color: $main-theme-color;
     margin-bottom: 8pt;
     text-align: left;
+    text-shadow: 1px 1px 1px lighten($main-theme-color, 30%);
 }
 
 .form-control{
