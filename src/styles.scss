@@ -41,7 +41,8 @@ h1, h2, h3, h4, h5, h6{
     cursor: pointer;
     padding: .5rem;
     &:hover{
-        background-color: lighten($main-theme-color, 5%);
+        background-color: lighten($main-theme-color, 10%);
+        color: white;
     }
 }
 

@@ -28,23 +28,23 @@ export class MapComponent implements OnInit {
     });
 
     // Enviar formulario al hacer clic en un edo
-    $mapa.addEventListener('click', this.irEstado);
-
+    $mapa.addEventListener('click', this.selectEstado);
     
   }
 
-  irEstado(evt:MouseEvent){
+  selectEstado(evt:MouseEvent){
     const $estadosSelect = document.getElementById('estadoSelect') as HTMLSelectElement;
-    const $formulario = document.getElementById('mapaForm') as HTMLFormElement;
     var target = evt.target as HTMLElement;
     var key = target.dataset.key;
     if(key){
       $estadosSelect.value = key;
-      // $formulario.submit();
-      // this.router.navigate(['/acerca']);
-      window.location.href = `/institutos/${key}`;
     }
   }
 
+  irEstado(estado:string){
+    const $estadosSelect = document.getElementById('estadoSelect') as HTMLSelectElement;
+    estado = estado || $estadosSelect.value;
+    this.router.navigate(['estado', estado]);
+  }
 
 }

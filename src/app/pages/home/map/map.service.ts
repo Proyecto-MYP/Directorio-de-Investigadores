@@ -54,4 +54,9 @@ export class MapService {
     return hash;
   }
 
+  getNombre(clave:string){
+    let hash = this.getHash();
+    return hash[clave];
+  }
+
 }

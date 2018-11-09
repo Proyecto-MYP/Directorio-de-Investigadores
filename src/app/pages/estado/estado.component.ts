@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { MapService } from 'src/app/pages/home/map/map.service';
 
 @Component({
   selector: 'app-estado',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstadoComponent implements OnInit {
 
-  constructor() { }
+  edoClave: string;
+  edoNombre: string;
+
+  constructor(
+    private route: ActivatedRoute,
+    private mapService: MapService
+  ) { }
 
   ngOnInit() {
+    this.edoClave = this.route.snapshot.paramMap.get('key');
+    this.edoNombre = this.mapService.getNombre(this.edoClave);
+    console.log(this.edoClave, this.edoNombre);
   }
-
 }

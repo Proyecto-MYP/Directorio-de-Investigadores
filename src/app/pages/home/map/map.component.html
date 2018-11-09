@@ -37,13 +37,15 @@
 
   <div id="etiqueta"></div>
 
-  <form id="mapaForm" method="GET">
+  <!-- Selector de estado -->
+  <div id="mapaForm">
     <select name="estado" id="estadoSelect" class="form-control">
       <option *ngFor="let edo of estados" value="{{edo.clave}}">{{edo.nombre}}</option>
     </select>
-    <button class="btn" type="submit">
+    <button class="btn" (click)=irEstado()>
       <i class="fas fa-arrow-right"></i>
     </button>
-  </form>
+  </div>
+
 </div>
 
