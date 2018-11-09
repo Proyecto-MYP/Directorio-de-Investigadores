@@ -3,12 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { NavComponent } from './nav/nav.component';
-import { MapComponent } from './map/map.component';
-import { InstitutosComponent } from './institutos/institutos.component';
-import { InvestigadoresComponent } from './investigadores/investigadores.component';
-import { AcercaComponent } from './acerca/acerca.component';
+
+import { HomeComponent } from './pages/home/home.component';
+import { MapComponent } from './pages/home/map/map.component';
+
+import { EstadoComponent } from './pages/estado/estado.component';
+import { InstitutosComponent } from './pages/institutos/institutos.component';
+import { InvestigadoresComponent } from './pages/investigadores/investigadores.component';
+import { AcercaComponent } from './pages/acerca/acerca.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,8 @@ import { AcercaComponent } from './acerca/acerca.component';
     MapComponent,
     InstitutosComponent,
     InvestigadoresComponent,
-    AcercaComponent
+    AcercaComponent,
+    EstadoComponent
   ],
   imports: [
     BrowserModule,
