@@ -27,8 +27,11 @@ export class MapComponent implements OnInit {
       $etiqueta.innerText = edo ? edo : '';
     });
 
-    // Enviar formulario al hacer clic en un edo
-    $mapa.addEventListener('click', this.selectEstado);
+    // Navega hacia el estado seleccionado
+    $mapa.addEventListener('click', (evt) => {
+      this.selectEstado(evt);
+      this.irEstado('');
+    });
     
   }
 
@@ -41,7 +44,7 @@ export class MapComponent implements OnInit {
     }
   }
 
-  irEstado(estado:string){
+  irEstado(estado:string = null){
     const $estadosSelect = document.getElementById('estadoSelect') as HTMLSelectElement;
     estado = estado || $estadosSelect.value;
     this.router.navigate(['estado', estado]);

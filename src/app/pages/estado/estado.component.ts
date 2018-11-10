@@ -8,7 +8,6 @@ import { MapService } from 'src/app/pages/home/map/map.service';
   styleUrls: ['./estado.component.scss']
 })
 export class EstadoComponent implements OnInit {
-
   edoClave: string;
   edoNombre: string;
 
@@ -20,6 +19,5 @@ export class EstadoComponent implements OnInit {
   ngOnInit() {
     this.edoClave = this.route.snapshot.paramMap.get('key');
     this.edoNombre = this.mapService.getNombre(this.edoClave);
-    console.log(this.edoClave, this.edoNombre);
   }
 }
