@@ -17,7 +17,7 @@ export class EstadoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.edoClave = this.route.snapshot.paramMap.get('key');
+    this.edoClave = this.route.snapshot.paramMap.get('clave');
     this.edoNombre = this.mapService.getNombre(this.edoClave);
   }
 }
