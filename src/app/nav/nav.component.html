@@ -3,22 +3,12 @@
     <a id="header-link" routerLink="/"><i class="fab fa-connectdevelop"></i></a>
     <nav>
       <ul>
-        <li><a routerLink="/">
-          <i class="fas fa-home"></i>
-          <span class="nav-label">Inicio</span>
-        </a></li>
-        <li><a routerLink="/institutos">
-          <i class="fas fa-university"></i>
-          <span class="nav-label">Institutos</span>
-        </a></li>
-        <li><a routerLink="/investigadores">
-          <i class="fas fa-users"></i>
-          <span class="nav-label">Investigadores</span>
-        </a></li>
-        <li><a routerLink="/acerca">
-          <i class="fas fa-question"></i>
-          <span class="nav-label">Acerca...</span>
-        </a></li>
+        <li *ngFor="let link of navLinks">
+          <a routerLink="{{ link.ruta }}">
+            <i class="fas {{ link.icono }}"></i>
+            <span class="nav-label">{{ link.texto }}</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -35,6 +25,6 @@
   </button>
   <h1>
     <i class="fab fa-connectdevelop"></i>
-    Redinv
+    DMI
   </h1>
 </div>

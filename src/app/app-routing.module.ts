@@ -10,6 +10,7 @@ import { AcercaComponent } from './pages/acerca/acerca.component';
 const routes: Routes = [
   {path: '',               component: HomeComponent},
   {path: 'institutos',     component: InstitutosComponent},
+  {path: 'estado',         component: EstadoComponent},
   {path: 'estado/:clave',  component: EstadoComponent},
   {path: 'investigadores', component: InvestigadoresComponent},
   {path: 'acerca',         component: AcercaComponent},

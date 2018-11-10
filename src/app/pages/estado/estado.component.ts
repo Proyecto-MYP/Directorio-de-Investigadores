@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstadosService } from 'src/app/estados.service';
 
@@ -12,6 +13,7 @@ export class EstadoComponent implements OnInit {
   edoNombre: string;
 
   constructor(
+    private titleService: Title,
     private route: ActivatedRoute,
     private router: Router,
     private estadosService: EstadosService
@@ -20,8 +22,6 @@ export class EstadoComponent implements OnInit {
   ngOnInit() {
     this.edoClave = this.route.snapshot.paramMap.get('clave');
     this.edoNombre = this.estadosService.getNombre(this.edoClave);
-    if(!this.edoNombre){
-      this.router.navigate(['/pag404']);
-    }
+    this.titleService.setTitle(this.edoNombre || 'Estado');
   }
 }

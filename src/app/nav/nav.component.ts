@@ -8,12 +8,40 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   contracted:boolean = false;
+  navLinks;
 
   constructor() { }
 
   ngOnInit() {
     if(localStorage.getItem('remNav')) this.toggleNav();
     onresize = this.onResize;
+    this.navLinks = [
+      {
+        ruta:  '/',
+        icono: 'fa-home',
+        texto: 'Inicio'
+      },
+      {
+        ruta:  '/institutos',
+        icono: 'fa-university',
+        texto: 'Institutos'
+      },
+      {
+        ruta:  '/estado',
+        icono: 'fa-map',
+        texto: 'Estados'
+      },
+      {
+        ruta:  '/investigadores',
+        icono: 'fa-users',
+        texto: 'Investigadores'
+      },
+      {
+        ruta:  '/acerca',
+        icono: 'fa-question',
+        texto: 'Acerca...'
+      },
+    ];
   }
 
   toggleNav(){

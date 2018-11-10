@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +9,13 @@ import { Router } from '@angular/router';
 })
 export class Pag404Component implements OnInit {
 
-  constructor( private router:Router ) { }
+  constructor(
+    private titleService: Title,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    this.titleService.setTitle('404 - Página no enconrada');
   }
 
   irInicio(){
