@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MapService } from './map.service';
+import { EstadosService } from 'src/app/estados.service';
 import { URL } from 'url';
 
 @Component({
@@ -10,14 +10,15 @@ import { URL } from 'url';
 })
 export class MapComponent implements OnInit {
 
-  estados = this.mapSrv.getEstados();
+  estados;
 
-  constructor( private mapSrv: MapService, private router: Router) { }
+  constructor( private edoSrv: EstadosService, private router: Router) { }
 
   ngOnInit() {
     const $mapa = document.getElementsByTagName('svg')[0]
     const $etiqueta = document.getElementById('etiqueta');
-    const estadosHash = this.mapSrv.getHash();
+    this.estados = this.edoSrv.getEstados();
+    const estadosHash = this.edoSrv.getHash();
 
     // Mostrar el estado en la etiqueta
     $mapa.addEventListener('mouseover', function(evt){

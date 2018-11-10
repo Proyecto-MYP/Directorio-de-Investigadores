@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MapService } from 'src/app/pages/home/map/map.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EstadosService } from 'src/app/estados.service';
 
 @Component({
   selector: 'app-estado',
@@ -13,11 +13,15 @@ export class EstadoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private mapService: MapService
+    private router: Router,
+    private estadosService: EstadosService
   ) { }
 
   ngOnInit() {
     this.edoClave = this.route.snapshot.paramMap.get('clave');
-    this.edoNombre = this.mapService.getNombre(this.edoClave);
+    this.edoNombre = this.estadosService.getNombre(this.edoClave);
+    if(!this.edoNombre){
+      this.router.navigate(['/pag404']);
+    }
   }
 }

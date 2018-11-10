@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class MapService {
-
+export class EstadosService {
   estados = [
     { clave: 'AS', nombre: "Aguascalientes" },
     { clave: 'BC', nombre: "Baja California" },
@@ -39,6 +38,7 @@ export class MapService {
     { clave: 'YN', nombre: "Yucatán" },
     { clave: 'ZS', nombre: "Zacatecas" },
   ];
+  
 
   constructor() { }
 
@@ -58,5 +58,5 @@ export class MapService {
     let hash = this.getHash();
     return hash[clave];
   }
-
+  
 }
