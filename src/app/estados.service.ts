@@ -39,11 +39,33 @@ export class EstadosService {
     { clave: 'ZS', nombre: "Zacatecas" },
   ];
   
+  edoDetalles = [
+    {
+      clave: 'AS',
+      nombre: this.getNombre('AS'),
+      cantidadSedes: 4
+    },
+    {
+      clave: 'BC',
+      nombre: this.getNombre('BC'),
+      cantidadSedes: 6
+    },
+    {
+      clave: 'BS',
+      nombre: this.getNombre('BS'),
+      cantidadSedes: 2
+    },
+  ];
+
 
   constructor() { }
 
   getEstados(){
     return this.estados;
+  }
+
+  getDetalleEstados(){
+    return this.edoDetalles;
   }
 
   getHash(){

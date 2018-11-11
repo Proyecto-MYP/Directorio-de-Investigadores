@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  contracted:boolean = false;
+  contracted = false;
   navLinks;
 
   constructor() { }
 
   ngOnInit() {
-    if(localStorage.getItem('remNav')) this.toggleNav();
+    if (localStorage.getItem('remNav')) { this.toggleNav(); }
     onresize = this.onResize;
     this.navLinks = [
       {
@@ -44,17 +44,17 @@ export class NavComponent implements OnInit {
     ];
   }
 
-  toggleNav(){
+  toggleNav() {
     this.contracted = !this.contracted;
-    let $header:HTMLElement = document.getElementsByTagName('header')[0];
-    let $caret:HTMLElement = document.querySelector('#contract-btn>a');
+    const $header: HTMLElement = document.getElementsByTagName('header')[0];
+    const $caret: HTMLElement = document.querySelector('#contract-btn>a');
 
-    if(this.contracted){
+    if (this.contracted) {
       // Contraer el nav
       localStorage.setItem('remNav', '1');
       $header.classList.add('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-right"></i>';
-    }else{
+    } else {
       // Expandir el nav
       localStorage.removeItem('remNav');
       $header.classList.remove('contracted');
@@ -63,16 +63,16 @@ export class NavComponent implements OnInit {
     return false;
   }
 
-  showResponsiveMenu(){
-    let $header:HTMLElement = document.getElementsByTagName('header')[0];
+  showResponsiveMenu() {
+    const $header: HTMLElement = document.getElementsByTagName('header')[0];
     $header.classList.toggle('show');
   }
 
-  onResize(){
-    let $header:HTMLElement = document.getElementsByTagName('header')[0];
-    if(innerWidth < 768){
+  onResize() {
+    const $header: HTMLElement = document.getElementsByTagName('header')[0];
+    if (innerWidth < 768) {
       $header.classList.remove('contracted');
-    }else{
+    } else {
       $header.classList.remove('show');
     }
   }

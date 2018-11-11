@@ -1,3 +1,18 @@
-<h1>
-  {{ edoNombre }}
-</h1>
+<h1>{{ edoNombre }}</h1>
+<div *ngIf="!edoClave" class="lista-estados">
+  <mat-list>
+    <mat-list-item *ngFor="let edo of edoDetalles">
+      <mat-icon mat-list-icon>school</mat-icon>
+      <h2 mat-line>
+        <a routerLink="/estado/{{edo.clave}}">{{ edo.nombre }}</a>
+      </h2>
+      <p mat-line>
+        Instituciones en este estado: {{ edo.cantidadSedes }}
+      </p>
+      <a mat-raised-button routerLink="/estado/{{edo.clave}}">
+        Ver detalles
+      </a>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</div>

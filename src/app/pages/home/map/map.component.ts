@@ -22,33 +22,35 @@ export class MapComponent implements OnInit {
 
     // Mostrar el estado en la etiqueta
     $mapa.addEventListener('mouseover', function(evt){
-      var target = evt.target as HTMLElement;
-      var key = target.dataset.key;
-      var edo = estadosHash[key];
+      const target = evt.target as HTMLElement;
+      const key = target.dataset.key;
+      const edo = estadosHash[key];
       $etiqueta.innerText = edo ? edo : '';
     });
 
     // Navega hacia el estado seleccionado
     $mapa.addEventListener('click', (evt) => {
       this.selectEstado(evt);
-      this.irEstado('');
+      this.irEstado();
     });
-    
+
   }
 
-  selectEstado(evt:MouseEvent){
+  selectEstado(evt: MouseEvent){
     const $estadosSelect = document.getElementById('estadoSelect') as HTMLSelectElement;
-    var target = evt.target as HTMLElement;
-    var key = target.dataset.key;
-    if(key){
+    const target = evt.target as HTMLElement;
+    const key = target.dataset.key;
+    if (key) {
       $estadosSelect.value = key;
     }
   }
 
-  irEstado(estado:string = null){
+  irEstado(estado?: string){
     const $estadosSelect = document.getElementById('estadoSelect') as HTMLSelectElement;
+    if ($estadosSelect.value === '0') { return; }
     estado = estado || $estadosSelect.value;
     this.router.navigate(['estado', estado]);
+    console.log(estado);
   }
 
 }

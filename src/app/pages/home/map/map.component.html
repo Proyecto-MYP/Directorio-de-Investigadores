@@ -40,6 +40,7 @@
   <!-- Selector de estado -->
   <div id="mapaForm">
     <select name="estado" id="estadoSelect" class="form-control">
+      <option value="0">-- Selecciona un estado --</option>
       <option *ngFor="let edo of estados" value="{{edo.clave}}">{{edo.nombre}}</option>
     </select>
     <button class="btn" (click)=irEstado()>

@@ -25,6 +25,13 @@ h1, h2, h3, h4, h5, h6{
     margin-bottom: 8pt;
     text-align: left;
     text-shadow: 1px 1px 1px lighten($main-theme-color, 30%);
+    a{
+        color: inherit;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 }
 
 .form-control{
