@@ -1,4 +1,5 @@
 <h1>{{ edoNombre }}</h1>
+
 <div *ngIf="!edoClave" class="lista-estados">
   <mat-list>
     <mat-list-item *ngFor="let edo of edoDetalles">
@@ -15,4 +16,8 @@
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
+</div>
+
+<div *ngIf="edoClave" class="lista-instituciones">
+  lista instituciones
 </div>
