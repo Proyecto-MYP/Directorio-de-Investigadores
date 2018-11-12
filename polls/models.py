@@ -39,15 +39,14 @@ class Department(models.Model):
 class Researcher(models.Model):
     id_researcher = models.AutoField(primary_key = True)
     person = models.ForeignKey(Person, related_name = 'researcher', on_delete = models.CASCADE)
-    department = models.ForeignKey(Department, related_name = 'researchers', on_delete = models.CASCADE)
-
+    department = models.ForeignKey(Department, related_name = 'researchers',null=True, on_delete = models.SET_NULL)
     def __str__(self):
         return 'researcher ' + self.person.name
 
 class Student(models.Model):
     id_student = models.AutoField(primary_key = True)
     person = models.ForeignKey(Person, related_name = 'student', on_delete = models.CASCADE)
-    supervisor = models.ForeignKey(Researcher, related_name = 'students', on_delete = models.CASCADE)
+    supervisor = models.ForeignKey(Researcher, related_name = 'students', null =True,  on_delete = models.SET_NULL)
 
     def __str__(self):
         return 'student ' + self.name
