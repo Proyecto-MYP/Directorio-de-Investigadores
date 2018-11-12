@@ -22,9 +22,14 @@ class InstitutionSerializer(serializers.HyperlinkedModelSerializer):
     read_only = True,
     view_name = 'branch-detail'
     )
+    direction = serializers.HyperlinkedRelatedField(
+    many = False,
+    read_only = True,
+    view_name = 'direction-detail'
+    ) 
     class Meta:
         model = models.Institution
-        fields = ('id_institution', 'name', 'branches')
+        fields = ('id_institution', 'name', 'branches', 'direction')
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -75,3 +80,8 @@ class StudentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Student
         fields = ('id_student', 'person', 'supervisor')
+
+class StateSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.States
+        fields = ('id_state','name')

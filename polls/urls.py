@@ -11,6 +11,7 @@ router.register(r'article', views.ArticleViewSet)
 router.register(r'department', views.DepartmentViewSet)
 router.register(r'researcher', views.ResearcherViewSet)
 router.register(r'student', views.StudentViewSet)
+router.register(r'states',views.StateViewSet)
 
 urlpatterns = [
     path('', include(router.urls))

@@ -68,3 +68,11 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+
+class States(models.Model):
+    id_state = models.AutoField(primary_key = True)
+    name = models.TextField(max_length = 200)
+    sub = models.TextField(max_length = 200)
+    
+    def __str__(self):
+        return self.name
