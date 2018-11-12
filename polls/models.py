@@ -39,8 +39,7 @@ class Department(models.Model):
 class Researcher(models.Model):
     id_researcher = models.AutoField(primary_key = True)
     person = models.ForeignKey(Person, related_name = 'researcher', on_delete = models.CASCADE)
-    department = models.ForeignKey(Department, related_name = 'researchers',null=True on_delete = models.SET_NULL)
-
+    department = models.ForeignKey(Department, related_name = 'researchers',null=True, on_delete = models.SET_NULL)
     def __str__(self):
         return 'researcher ' + self.person.name
 
