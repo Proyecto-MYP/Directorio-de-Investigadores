@@ -33,3 +33,7 @@ class ResearcherViewSet(viewsets.ModelViewSet):
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = models.Student.objects.all()
     serializer_class = serializers.StudentSerializer
+
+class StateViewSet(viewsets.ModelViewSet):
+    queryset = models.States.objects.all()
+    serializer_class = serializers.StateSerializer
