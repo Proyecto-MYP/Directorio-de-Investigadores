@@ -1,0 +1,12 @@
+// Colores
+$main-theme-color: hsl(225, 20%, 30%);
+$text-color:       hsl(0, 0%, 20%);
+$gris-claro:       hsl(0, 0%, 95%);
+$gris-medio:         darken($gris-claro, 10%);
+$gris-oscuro:        darken($gris-claro, 20%);
+
+// Breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;

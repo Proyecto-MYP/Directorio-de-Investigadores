@@ -1,0 +1,32 @@
+<header>
+  <div id="main-nav">
+    <a id="header-link" routerLink="/"><i class="fab fa-connectdevelop"></i></a>
+    <nav>
+      <ul>
+        <li *ngFor="let link of navLinks">
+          <a routerLink="{{ link.ruta }}">
+            <i class="fas {{ link.icono }}"></i>
+            <span class="nav-label">{{ link.texto }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div id="contract-btn">
+    <a href="#" (click)="toggleNav()">
+      <i class="fas fa-caret-left"></i>
+    </a>
+  </div>
+</header>
+
+<div id="bars">
+  <button type="button" id="bars-btn" (click)="showResponsiveMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <h1>
+    <a routerLink="/">
+      <i class="fab fa-connectdevelop"></i>
+      DMI
+    </a>
+  </h1>
+</div>
