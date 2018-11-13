@@ -15,6 +15,8 @@ import { EstadoComponent } from './pages/estado/estado.component';
 import { InstitutosComponent } from './pages/institutos/institutos.component';
 import { InvestigadoresComponent } from './pages/investigadores/investigadores.component';
 import { AcercaComponent } from './pages/acerca/acerca.component';
+import { ListaEstadosComponent } from './pages/estado/lista-estados/lista-estados.component';
+import { DetalleEstadoComponent } from './pages/estado/detalle-estado/detalle-estado.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { AcercaComponent } from './pages/acerca/acerca.component';
     InstitutosComponent,
     InvestigadoresComponent,
     AcercaComponent,
-    EstadoComponent
+    EstadoComponent,
+    ListaEstadosComponent,
+    DetalleEstadoComponent
   ],
   imports: [
     BrowserModule,
