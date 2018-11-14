@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EstadosService } from 'src/app/estados.service';
+import { EstadosService } from 'src/app/servicios/estados.service';
 import { URL } from 'url';
 
 @Component({

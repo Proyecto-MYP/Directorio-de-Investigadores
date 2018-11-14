@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { EstadosService } from 'src/app/estados.service';
+import { EstadosService } from 'src/app/servicios/estados.service';
 
 @Component({
   selector: 'app-detalle-estado',
