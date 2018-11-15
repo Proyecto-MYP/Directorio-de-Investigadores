@@ -1,5 +1,5 @@
 @import '~src/variables';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 *{
     margin: 0;
@@ -32,6 +32,11 @@ h1, h2, h3, h4, h5, h6{
             text-decoration: underline;
         }
     }
+}
+
+input{
+    background-color: $gris-claro;
+    color: $text-color;
 }
 
 .form-control{

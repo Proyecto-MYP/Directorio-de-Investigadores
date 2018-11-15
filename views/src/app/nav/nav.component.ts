@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../servicios/usuario.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,7 +11,9 @@ export class NavComponent implements OnInit {
   contracted = false;
   navLinks;
 
-  constructor() { }
+  constructor(
+    private usuarioService: UsuarioService
+  ) { }
 
   ngOnInit() {
     if (localStorage.getItem('remNav')) { this.toggleNav(); }
@@ -41,7 +44,22 @@ export class NavComponent implements OnInit {
         icono: 'fa-question',
         texto: 'Acerca...'
       },
+
     ];
+
+    if (!this.usuarioService.getSesion()) {
+      this.navLinks.push({
+        ruta:  '/login',
+        icono: 'fa-sign-in-alt',
+        texto: 'Entrar'
+      });
+    } else {
+      this.navLinks.push({
+        ruta:  '/tablero',
+        icono: 'fa-dashboard',
+        texto: 'Tablero'
+      });
+    }
   }
 
   toggleNav() {

@@ -17,6 +17,8 @@ import { InvestigadoresComponent } from './pages/investigadores/investigadores.c
 import { AcercaComponent } from './pages/acerca/acerca.component';
 import { ListaEstadosComponent } from './pages/estado/lista-estados/lista-estados.component';
 import { DetalleEstadoComponent } from './pages/estado/detalle-estado/detalle-estado.component';
+import { LoginComponent } from './pages/usuario/login/login.component';
+import { RegistroComponent } from './pages/usuario/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { DetalleEstadoComponent } from './pages/estado/detalle-estado/detalle-es
     AcercaComponent,
     EstadoComponent,
     ListaEstadosComponent,
-    DetalleEstadoComponent
+    DetalleEstadoComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

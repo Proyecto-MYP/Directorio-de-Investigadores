@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
-import { EstadosService } from 'src/app/estados.service';
+import { EstadosService } from 'src/app/servicios/estados.service';
 
 @Component({
   selector: 'app-lista-estados',
@@ -13,8 +12,6 @@ export class ListaEstadosComponent implements OnInit {
 
   constructor(
     private titleService:   Title,
-    private router:         Router,
-    private route:          ActivatedRoute,
     private estadosService: EstadosService
   ) { }
 
