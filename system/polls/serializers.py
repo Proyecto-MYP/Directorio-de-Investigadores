@@ -84,4 +84,4 @@ class StudentSerializer(serializers.HyperlinkedModelSerializer):
 class StateSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.States
-        fields = ('id_state','name')
+        fields = ('id_state','name', 'slug')
