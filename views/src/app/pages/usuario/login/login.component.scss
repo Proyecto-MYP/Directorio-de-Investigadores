@@ -34,6 +34,11 @@ mat-card{
         color: $main-theme-color;
     }
     @media(min-width: $md){
+        margin-top: 18rem;
+        position: absolute;
+    }
+    @media(min-width: $lg) {
+        margin-top: auto;
         position: absolute;
     }
 }
@@ -49,4 +54,13 @@ mat-card-actions{
 mat-card-footer{
     padding: .5rem;
     text-align: right;
+}
+
+button:hover{
+    background-color: $main-theme-color;
+    color: white;
+}
+
+mat-card-title{
+    color: $main-theme-color;
 }

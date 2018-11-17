@@ -69,9 +69,9 @@ class Article(models.Model):
         return self.title
 
 class States(models.Model):
-    id_state = models.AutoField(primary_key = True)
-    name = models.TextField(max_length = 200)
-    sub = models.TextField(max_length = 200)
+    id_state = models.CharField(max_length = 2, primary_key = True)
+    name = models.CharField(max_length = 100)
+    slug = models.CharField(max_length = 100)
     
     def __str__(self):
         return self.name

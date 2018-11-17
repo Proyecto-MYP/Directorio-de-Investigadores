@@ -37,6 +37,34 @@ export class UsuarioService {
     return this.sesion;
   }
 
+  registerUser(username: string, email: string, password: string, password_confirmation: string) {
+    if (!username || !email || !password || !password_confirmation) {
+      return false;
+    }
+
+    else if (password !== password_confirmation) {
+      return false;
+    }
+
+    else {
+      for (const usr of this.usuarios) {
+        if (usr.nombre === username || usr.correo === email) {
+          console.log('El usuario ya existe en la base de datos');
+          return false;
+        }
+      }
+      this.usuarios.push(
+        {
+          nombre: username,
+          correo: email,
+          password: password
+        }
+      );
+      console.log('Usuario registrado');
+      return true;
+    }
+  }
+
   getSesion(){
     return this.sesion;
   }
