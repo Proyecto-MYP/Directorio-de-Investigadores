@@ -71,7 +71,7 @@ class Article(models.Model):
 class States(models.Model):
     id_state = models.CharField(max_length = 2, primary_key = True)
     name = models.CharField(max_length = 100)
-    slug = models.TextField(max_length = 100)
+    slug = models.CharField(max_length = 100)
     
     def __str__(self):
         return self.name
