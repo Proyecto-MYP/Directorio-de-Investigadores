@@ -23,7 +23,7 @@ export class MapComponent implements OnInit {
 
     this.statesSrv.getStates().subscribe(data => {
       this.estados = data;
-      for (const estado of data) {
+      for (const estado of this.estados) {
         estadosHash[estado.id_state] = estado.name;
       }
     });
