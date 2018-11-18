@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material';
 
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { RegistroComponent } from './pages/usuario/registro/registro.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpClientModule,
     MaterialModule
   ],
   providers: [ Title ],
