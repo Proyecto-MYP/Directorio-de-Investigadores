@@ -92,9 +92,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'project',
-        'USER': 'admin',
-        'PASSWORD': 'admin',
-        'HOST': '192.168.100.40',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'directorio-de-investigadores_django',
     }
 }
 

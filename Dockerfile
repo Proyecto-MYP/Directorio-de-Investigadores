@@ -5,7 +5,6 @@ WORKDIR /system
 
 # Copy the current directory contents into the container at /app
 COPY . .
-#COPY start.sh /start.sh
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r system/requirements
