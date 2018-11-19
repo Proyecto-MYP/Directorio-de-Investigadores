@@ -1,0 +1,14 @@
+Para permitir que Postgres permita las conexiones desde otro sitio se deben hacer los siguientes pasos:
+	-Desde postgres buscar la ubicacion de los archivos pg_hba.config y postgrest.conf. (se hace con los comandos "SHOW config_file;" y con "SHOW hba_file;:)
+	-Modificar config_file al cambiarle listen_addresses = 'localhost' por listen_addresses = '*'
+	-Modificar el hba_f al agregarle el siguiente texto al final del archivo
+host    all             all             0.0.0.0/0               md5
+host    all             all             ::/0                    md5
+
+	-Instalar docker https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
+	
+	-Modificar los settings de Backend para que el HOST (de la BD) sea el ip de su computadora en vez de localhost
+	-Docker build -t <Nombre de su imagen> . (notese el punto)
+	-Docker run -it -p 8000:8000 <Nombre de su imagen> 
+Con estos pasos el servidor ya deja de correr en el server de Django y corre en Gunicorn
+
