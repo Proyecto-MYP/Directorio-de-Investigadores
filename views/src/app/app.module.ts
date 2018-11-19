@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { MaterialModule } from './material';
+import { MaterialModule } from './material.module';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -12,14 +12,11 @@ import { Pag404Component } from './pages/pag404/pag404.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { MapComponent } from './pages/home/map/map.component';
-import { EstadoComponent } from './pages/estado/estado.component';
-import { InstitutosComponent } from './pages/institutos/institutos.component';
-import { InvestigadoresComponent } from './pages/investigadores/investigadores.component';
-import { AcercaComponent } from './pages/acerca/acerca.component';
-import { ListaEstadosComponent } from './pages/estado/lista-estados/lista-estados.component';
-import { DetalleEstadoComponent } from './pages/estado/detalle-estado/detalle-estado.component';
-import { LoginComponent } from './pages/usuario/login/login.component';
-import { RegistroComponent } from './pages/usuario/registro/registro.component';
+import { StateComponent } from './pages/state/state.component';
+import { StatesListComponent } from './pages/state/states-list/states-list.component';
+import { StateDetailsComponent } from './pages/state/state-details/state-details.component';
+import { LoginComponent } from './pages/user/login/login.component';
+import { SignupComponent } from './pages/user/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +25,11 @@ import { RegistroComponent } from './pages/usuario/registro/registro.component';
     NavComponent,
     Pag404Component,
     MapComponent,
-    InstitutosComponent,
-    InvestigadoresComponent,
-    AcercaComponent,
-    EstadoComponent,
-    ListaEstadosComponent,
-    DetalleEstadoComponent,
+    StateComponent,
+    StatesListComponent,
+    StateDetailsComponent,
     LoginComponent,
-    RegistroComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,
