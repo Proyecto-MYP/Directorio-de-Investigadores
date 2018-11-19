@@ -25,7 +25,7 @@ SECRET_KEY = '22sz+vb!2ihpkegb9hxxxr4!&9zudm)ebhu^yiu3@kf)%j1o3r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -99,7 +99,7 @@ DATABASES = {
         'NAME': 'project',
         'USER': 'admin',
         'PASSWORD': 'admin',
-        'HOST': 'localhost',
+        'HOST': '192.168.100.40',
     }
 }
 
