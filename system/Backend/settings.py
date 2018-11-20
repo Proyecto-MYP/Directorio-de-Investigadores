@@ -94,7 +94,7 @@ DATABASES = {
         'NAME': 'project',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'directorio-de-investigadores_django',
+        'HOST': 'directorio-de-investigadores_postgres_1',
     }
 }
 
