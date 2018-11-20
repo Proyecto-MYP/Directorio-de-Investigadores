@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["0.0.0.0"]
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 # Application definition
 
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'django.contrib.sites',
+    'corsheaders',
     'allauth',
     'allauth.account',
     'rest_auth.registration',
@@ -62,6 +65,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'Backend.urls'

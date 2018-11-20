@@ -2,6 +2,7 @@
 
 #wrapper{
     @media(min-width: $md){
+        height: 97vh;
         position: relative;
         &::before{
             background-image: url('~src/assets/img/login-bg.jpg');
@@ -34,11 +35,6 @@ mat-card{
         color: $main-theme-color;
     }
     @media(min-width: $md){
-        margin-top: 18rem;
-        position: absolute;
-    }
-    @media(min-width: $lg) {
-        margin-top: auto;
         position: absolute;
     }
 }
