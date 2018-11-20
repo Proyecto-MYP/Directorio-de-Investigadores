@@ -16,7 +16,7 @@
         justify-content: center;
         width: 100%;
         mat-card{
-            background-color: rgba($gris-claro, .8);
+            background-color: rgba($light-gray, .8);
             max-width: 400px;
             min-width: 200px;
         }
@@ -30,7 +30,7 @@
 }
 
 mat-card{
-    background-color: $gris-claro;
+    background-color: $light-gray;
     a{
         color: $main-theme-color;
     }
@@ -50,13 +50,4 @@ mat-card-actions{
 mat-card-footer{
     padding: .5rem;
     text-align: right;
-}
-
-button:hover{
-    background-color: $main-theme-color;
-    color: white;
-}
-
-mat-card-title{
-    color: $main-theme-color;
 }
