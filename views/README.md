@@ -11,6 +11,6 @@ Este proyecto fué generado con [Angular CLI](https://github.com/angular/angular
 3. Descargar o clonar este repositorio
 4. Dentro del directorio raíz del proyecto ejecutar `$ npm install` para descargar las dependencias del proyecto
 5. `$ ng serve` para visualizar en el navegador
-6. `$ ng build --prod` para generar los archivos para producción. Los mismos se guardarán dentro del directorio
-`dist/redinv/`
+6. `$ ng build --prod` para generar los archivos para producción. Los mismos se guardarán dentro del directorio de nivel superior
+`../public_html/`
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { EstadosService } from 'src/app/servicios/estados.service';
-import { URL } from 'url';
+import { StatesService } from 'src/app/servicios/states.service';
 
 @Component({
   selector: 'app-map',
@@ -12,16 +11,26 @@ export class MapComponent implements OnInit {
 
   estados;
 
-  constructor( private edoSrv: EstadosService, private router: Router) { }
+  constructor(
+    private router: Router,
+    private statesSrv: StatesService
+  ) { }
 
   ngOnInit() {
-    const $mapa = document.getElementsByTagName('svg')[0]
+    const $mapa = document.getElementsByTagName('svg')[0];
     const $etiqueta = document.getElementById('etiqueta');
-    this.estados = this.edoSrv.getEstados();
-    const estadosHash = this.edoSrv.getHash();
+    const estadosHash = {};
+
+    this.statesSrv.getStates().subscribe(data => {
+      this.estados = data;
+      for (const estado of this.estados) {
+        estadosHash[estado.id_state] = estado.name;
+      }
+    });
+
 
     // Mostrar el estado en la etiqueta
-    $mapa.addEventListener('mouseover', function(evt){
+    $mapa.addEventListener('mouseover', function(evt) {
       const target = evt.target as HTMLElement;
       const key = target.dataset.key;
       const edo = estadosHash[key];
@@ -36,7 +45,7 @@ export class MapComponent implements OnInit {
 
   }
 
-  selectEstado(evt: MouseEvent){
+  selectEstado(evt: MouseEvent) {
     const $estadosSelect = document.getElementById('estadoSelect') as HTMLSelectElement;
     const target = evt.target as HTMLElement;
     const key = target.dataset.key;
@@ -45,12 +54,11 @@ export class MapComponent implements OnInit {
     }
   }
 
-  irEstado(estado?: string){
+  irEstado(estado?: string) {
     const $estadosSelect = document.getElementById('estadoSelect') as HTMLSelectElement;
     if ($estadosSelect.value === '0') { return; }
     estado = estado || $estadosSelect.value;
     this.router.navigate(['estado', estado]);
-    console.log(estado);
   }
 
 }
