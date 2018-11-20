@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StatesService } from 'src/app/servicios/states.service';
+import { StatesService } from 'src/app/services/states.service';
 
 @Component({
   selector: 'app-map',

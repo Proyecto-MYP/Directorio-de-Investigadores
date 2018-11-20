@@ -1,9 +1,9 @@
-// Colores
+// Colors
 $main-theme-color: hsl(225, 20%, 30%);
 $text-color:       hsl(0, 0%, 20%);
-$gris-claro:       hsl(0, 0%, 95%);
-$gris-medio:         darken($gris-claro, 10%);
-$gris-oscuro:        darken($gris-claro, 20%);
+$light-gray:       hsl(0, 0%, 95%);
+$med-gray:         darken($light-gray, 10%);
+$dark-gray:        darken($light-gray, 20%);
 
 // Breakpoints
 $sm: 576px;

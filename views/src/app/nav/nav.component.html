@@ -4,9 +4,9 @@
     <nav>
       <ul>
         <li *ngFor="let link of navLinks">
-          <a routerLink="{{ link.ruta }}">
-            <i class="fas {{ link.icono }}"></i>
-            <span class="nav-label">{{ link.texto }}</span>
+          <a routerLink="{{ link.route }}">
+            <i class="fas {{ link.icon }}"></i>
+            <span class="nav-label">{{ link.text }}</span>
           </a>
         </li>
       </ul>

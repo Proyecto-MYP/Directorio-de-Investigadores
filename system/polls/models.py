@@ -21,6 +21,7 @@ class Institution(models.Model):
 class Branch(models.Model):
     id_branch = models.AutoField(primary_key = True)
     institution = models.ForeignKey(Institution, related_name = 'branches',  on_delete = models.CASCADE)
+    state = models.ForeignKey('States', related_name = 'branches',  on_delete = models.CASCADE)
     name = models.TextField(max_length = 200)
 
     def __str__(self):

@@ -1,5 +1,6 @@
 @import '~src/variables';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 *{
     margin: 0;
@@ -35,12 +36,12 @@ h1, h2, h3, h4, h5, h6{
 }
 
 input{
-    background-color: $gris-claro;
+    background-color: $light-gray;
     color: $text-color;
 }
 
 .form-control{
-    background-color: $gris-claro;
+    background-color: $light-gray;
     border: solid 1px $main-theme-color;
     border-radius: 5px;
     color: $text-color;
@@ -63,4 +64,15 @@ input{
 
 .hidden{
     display: none !important;
+}
+
+.mat-raised-button{
+    &:hover{
+        background-color: $main-theme-color;
+        color: white;
+    }
+}
+
+mat-card-title{
+    color: $main-theme-color;
 }

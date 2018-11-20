@@ -1,0 +1,54 @@
+@import '~src/variables';
+
+#wrapper{
+    @media(min-width: $md){
+        height: 97vh;
+        position: relative;
+        &::before{
+            background-image: url('~src/assets/img/login-bg.jpg');
+            content: '';
+            filter: blur(3px) grayscale(100%);
+            height: 100%;
+            width: 100%;
+        }
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        mat-card{
+            background-color: rgba($light-gray, .8);
+            max-width: 900px;
+            min-width: 200px;
+        }
+    }
+    @media(min-width: $lg){
+        height: 99vh;
+        &::before{
+            background-size: cover;
+        }
+    }
+}
+
+mat-card{
+    background-color: $light-gray;
+    a{
+        color: $main-theme-color;
+    }
+    @media(min-width: $md){
+        position: absolute;
+    }
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+mat-card-actions{
+    text-align: right;
+}
+
+mat-card-footer{
+    padding: .5rem;
+    text-align: right;
+}
+

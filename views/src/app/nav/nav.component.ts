@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../servicios/usuario.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   navLinks;
 
   constructor(
-    private usuarioService: UsuarioService
+    private usrSrv: UserService
   ) { }
 
   ngOnInit() {
@@ -20,44 +20,44 @@ export class NavComponent implements OnInit {
     onresize = this.onResize;
     this.navLinks = [
       {
-        ruta:  '/',
-        icono: 'fa-home',
-        texto: 'Inicio'
+        route: '/',
+        icon:  'fa-home',
+        text:  'Inicio'
       },
+      // {
+      //   route: '/institutos',
+      //   icon:  'fa-university',
+      //   text:  'Institutos'
+      // },
       {
-        ruta:  '/institutos',
-        icono: 'fa-university',
-        texto: 'Institutos'
+        route: '/estado',
+        icon:  'fa-map',
+        text:  'Estados'
       },
-      {
-        ruta:  '/estado',
-        icono: 'fa-map',
-        texto: 'Estados'
-      },
-      {
-        ruta:  '/investigadores',
-        icono: 'fa-users',
-        texto: 'Investigadores'
-      },
-      {
-        ruta:  '/acerca',
-        icono: 'fa-question',
-        texto: 'Acerca...'
-      },
+      // {
+      //   route: '/investigadores',
+      //   icon:  'fa-users',
+      //   text:  'Investigadores'
+      // },
+      // {
+      //   route: '/acerca',
+      //   icon:  'fa-question',
+      //   text:  'Acerca...'
+      // },
 
     ];
 
-    if (!this.usuarioService.getSesion()) {
+    if (!this.usrSrv.getSesion()) {
       this.navLinks.push({
-        ruta:  '/login',
-        icono: 'fa-sign-in-alt',
-        texto: 'Entrar'
+        route: '/login',
+        icon:  'fa-sign-in-alt',
+        text:  'Entrar'
       });
     } else {
       this.navLinks.push({
-        ruta:  '/tablero',
-        icono: 'fa-dashboard',
-        texto: 'Tablero'
+        route: '/tablero',
+        icon:  'fa-dashboard',
+        text:  'Tablero'
       });
     }
   }

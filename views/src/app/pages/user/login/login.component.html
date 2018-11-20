@@ -1,0 +1,28 @@
+<div id="wrapper">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Iniciar sesión</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <input id="correo" type="email" matInput placeholder="Correo" />
+        </mat-form-field>
+        <mat-form-field>
+          <input id="contra" type="password" matInput placeholder="Contraseña" />
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()">
+        Acceder
+      </button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <small>
+        ¿Deseas formar parte de la comunidad de investigadores?
+        <a routerLink="/registro">Regístrate</a>
+      </small>
+    </mat-card-footer>
+  </mat-card>
+</div>

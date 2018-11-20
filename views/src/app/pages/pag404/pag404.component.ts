@@ -18,7 +18,7 @@ export class Pag404Component implements OnInit {
     this.titleService.setTitle('404 - Página no enconrada');
   }
 
-  irInicio(){
+  goHome(){
     this.router.navigate(['/']);
   }
 
