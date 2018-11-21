@@ -6,12 +6,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class StatesService {
 
+  baseURL = 'http://localhost:8000/states/';
+
   constructor(
     private http: HttpClient
   ) { }
 
   getStates() {
-    return this.http.get('http://localhost:8000/states/');
+    return this.http.get(this.baseURL);
   }
 
   getHash() {
@@ -27,11 +29,10 @@ export class StatesService {
   }
 
   getName(idState: string) {
-    const hash = this.getHash();
-    return hash[idState];
+    return '';
   }
 
-  getStatesDetails(){
+  getStatesDetails() {
     return [{}];
   }
 

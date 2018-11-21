@@ -12,7 +12,6 @@ import { Pag404Component } from './pages/pag404/pag404.component';
 
 import { HomeComponent } from './pages/home/home.component';
 import { MapComponent } from './pages/home/map/map.component';
-import { StateComponent } from './pages/state/state.component';
 import { StatesListComponent } from './pages/state/states-list/states-list.component';
 import { StateDetailsComponent } from './pages/state/state-details/state-details.component';
 import { LoginComponent } from './pages/user/login/login.component';
@@ -25,7 +24,6 @@ import { SignupComponent } from './pages/user/signup/signup.component';
     NavComponent,
     Pag404Component,
     MapComponent,
-    StateComponent,
     StatesListComponent,
     StateDetailsComponent,
     LoginComponent,
