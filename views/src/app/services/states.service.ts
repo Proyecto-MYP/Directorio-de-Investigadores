@@ -28,8 +28,8 @@ export class StatesService {
     return hash;
   }
 
-  getName(idState: string) {
-    return '';
+  getState(idState: string){
+    return this.http.get(this.baseURL + idState + '/');
   }
 
   getStatesDetails() {

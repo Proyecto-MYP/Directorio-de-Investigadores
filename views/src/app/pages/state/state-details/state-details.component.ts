@@ -20,8 +20,10 @@ export class StateDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.idState = this.route.snapshot.paramMap.get('key');
-    this.stateName = this.statesSrv.getName(this.idState);
     this.titleService.setTitle(this.stateName);
+    this.statesSrv.getState(this.idState).subscribe(data => {
+      this.stateName = data['name'];
+    });
   }
 
 }
