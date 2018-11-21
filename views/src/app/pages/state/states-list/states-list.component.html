@@ -1,5 +1,5 @@
 <h1>Distribución de Instituciones</h1>
-<div class="states-list">
+<div *ngIf="statesDetails" class="states-list">
   <mat-list>
     <mat-list-item *ngFor="let state of statesDetails">
       <mat-icon mat-list-icon>school</mat-icon>
@@ -15,4 +15,7 @@
       <mat-divider></mat-divider>
     </mat-list-item>
   </mat-list>
+</div>
+<div *ngIf="!statesDetails">
+  <h3>No hay datos disponibles</h3>
 </div>

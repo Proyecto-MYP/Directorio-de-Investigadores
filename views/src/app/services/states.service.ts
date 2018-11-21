@@ -33,7 +33,7 @@ export class StatesService {
   }
 
   getStatesDetails() {
-    return [{}];
+    return null;
   }
 
 }
