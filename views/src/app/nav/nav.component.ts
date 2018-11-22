@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { ConfigService } from '../config.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,15 +8,20 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
+  projectAcronym;
   contracted = false;
   navLinks;
 
   constructor(
+    private site: ConfigService,
     private usrSrv: UserService
   ) { }
 
   ngOnInit() {
+    this.site.getConfig().subscribe(data => {
+      this.projectAcronym = data['projectAcronym'];
+    });
+
     if (localStorage.getItem('remNav')) { this.toggleNav(); }
     onresize = this.onResize;
     this.navLinks = [

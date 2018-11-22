@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
+import { ConfigService } from './config.service';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -36,7 +37,10 @@ import { SignupComponent } from './pages/user/signup/signup.component';
     HttpClientModule,
     MaterialModule
   ],
-  providers: [ Title ],
+  providers: [
+    ConfigService,
+    Title
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

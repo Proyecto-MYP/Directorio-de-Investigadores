@@ -25,3 +25,6 @@ INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
 INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
     'Instituto de las Carmelitas con Botas', '3', 'DF'
 );
+INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
+    'Escuela del perreo intenso de Chalco', '1', 'MC'
+);
