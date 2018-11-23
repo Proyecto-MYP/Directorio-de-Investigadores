@@ -25,7 +25,7 @@ SECRET_KEY = '22sz+vb!2ihpkegb9hxxxr4!&9zudm)ebhu^yiu3@kf)%j1o3r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", '127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -98,9 +98,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'project',
-        'USER': 'admin',
-        'PASSWORD': 'admin',
-        'HOST': 'localhost',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'directorio-de-investigadores_postgres_1',
     }
 }
 
