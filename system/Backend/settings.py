@@ -25,7 +25,7 @@ SECRET_KEY = '22sz+vb!2ihpkegb9hxxxr4!&9zudm)ebhu^yiu3@kf)%j1o3r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+	'django_filters',
 ]
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -103,7 +104,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -121,6 +121,12 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Rest framework configuration
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
 
 
 # Internationalization
