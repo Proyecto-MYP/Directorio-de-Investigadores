@@ -16,10 +16,8 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.site.getConfig().subscribe(data => {
-      this.titleService.setTitle(data['projectName']);
-      this.projectName = data['projectName'];
-    });
+    this.projectName = this.site.getProjectName();
+    this.titleService.setTitle(this.projectName);
   }
 
 }

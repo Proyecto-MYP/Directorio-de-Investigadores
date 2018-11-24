@@ -1,18 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
-  configUrl = 'assets/site-config.json';
+  config = {
+    apiUrl: 'http://localhost:8000/',
+    projectName: 'Directorio Mexicano de Investigadores',
+    projectAcronym: 'DMI'
+  };
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor() { }
 
-  getConfig(){
-    return this.http.get(this.configUrl);
+  getConfig() {
+    return this.config;
+  }
+
+  getApiUrl() {
+    return this.config.apiUrl;
+  }
+
+  getProjectName() {
+    return this.config.projectName;
+  }
+
+  getProjectAcronym() {
+    return this.config.projectAcronym;
   }
 
 }

@@ -18,9 +18,7 @@ export class NavComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.site.getConfig().subscribe(data => {
-      this.projectAcronym = data['projectAcronym'];
-    });
+    this.projectAcronym = this.site.getProjectAcronym();
 
     if (localStorage.getItem('remNav')) { this.toggleNav(); }
     onresize = this.onResize;

@@ -1,19 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ConfigService } from '../config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatesService {
 
-  baseURL = 'http://localhost:8000/states/';
-
   constructor(
+    private site: ConfigService,
     private http: HttpClient
   ) { }
 
   getStates() {
-    return this.http.get(this.baseURL);
+    const url = this.site.getApiUrl() + 'states/';
+    return this.http.get(url);
   }
 
   getHash() {
@@ -28,8 +29,9 @@ export class StatesService {
     return hash;
   }
 
-  getState(idState: string){
-    return this.http.get(this.baseURL + idState + '/');
+  getState(idState: string) {
+    const apiUrl = this.site.getApiUrl();
+    return this.http.get(`${apiUrl}states/${idState}/`);
   }
 
   getStatesDetails() {
