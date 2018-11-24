@@ -1,30 +1,30 @@
 -- INSTITUCIONES
-INSERT INTO polls_institution VALUES (1, 'Instituto Patrulla');
-INSERT INTO polls_institution VALUES (2, 'Escuela Patito');
-INSERT INTO polls_institution VALUES (3, 'Universidad Politécnica del Barrio');
+INSERT INTO polls_institution VALUES (1, 'Instituto Patrulla', current_timestamp);
+INSERT INTO polls_institution VALUES (2, 'Escuela Patito', current_timestamp);
+INSERT INTO polls_institution VALUES (3, 'Universidad Politécnica del Barrio', current_timestamp);
 
 -- SEDES
-INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
-    'Universidad del Aguacate', '3', 'AS'
+INSERT INTO polls_branch (name, institution_id, state_id, created_at) VALUES (
+    'Universidad del Aguacate', '3', 'AS', current_timestamp
 );
-INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
-    'Universidad del Camote', '3', 'PL'
+INSERT INTO polls_branch (name, institution_id, state_id, created_at) VALUES (
+    'Universidad del Camote', '3', 'PL', current_timestamp
 );
-INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
-    'Escuela del Estado del Perrito', '2', 'SP'
+INSERT INTO polls_branch (name, institution_id, state_id, created_at) VALUES (
+    'Escuela del Estado del Perrito', '2', 'SP', current_timestamp
 );
-INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
-    'ICKKCK', '1', 'SR'
+INSERT INTO polls_branch (name, institution_id, state_id, created_at) VALUES (
+    'ICKKCK', '1', 'SR', current_timestamp
 );
-INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
-    'Escuela del Valle', '1', 'DF'
+INSERT INTO polls_branch (name, institution_id, state_id, created_at) VALUES (
+    'Escuela del Valle', '1', 'DF', current_timestamp
 );
-INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
-    'Universidad del Águila', '2', 'DF'
+INSERT INTO polls_branch (name, institution_id, state_id, created_at) VALUES (
+    'Universidad del Águila', '2', 'DF', current_timestamp
 );
-INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
-    'Instituto de las Carmelitas con Botas', '3', 'DF'
+INSERT INTO polls_branch (name, institution_id, state_id, created_at) VALUES (
+    'Instituto de las Carmelitas con Botas', '3', 'DF', current_timestamp
 );
-INSERT INTO polls_branch (name, institution_id, state_id) VALUES (
-    'Escuela del perreo intenso de Chalco', '1', 'MC'
+INSERT INTO polls_branch (name, institution_id, state_id, created_at) VALUES (
+    'Escuela del perreo intenso de Chalco', '1', 'MC', current_timestamp
 );

@@ -74,4 +74,4 @@ class StudentSerializer(serializers.ModelSerializer):
 class StateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.States
-        fields = ('id_state','name', 'slug', 'created_at')
+        fields = ('id_state','name', 'slug')
