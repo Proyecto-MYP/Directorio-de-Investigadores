@@ -73,6 +73,13 @@ input{
     }
 }
 
-mat-card-title{
+mat-card-title, mat-card-title a{
     color: $main-theme-color;
+    font-weight: bold;
+    text-align: left;
+    text-decoration: none;
+}
+
+mat-card-title a:hover{
+    text-decoration: underline;
 }

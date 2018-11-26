@@ -34,8 +34,13 @@ export class StatesService {
     return this.http.get(`${apiUrl}states/${idState}/`);
   }
 
+  getStateDetails(idState: string) {
+    const apiUrl = this.site.getApiUrl();
+    return this.http.get(`${apiUrl}branch/?state=${idState}`);
+  }
+
   getStatesDetails() {
-    return null;
+    return [];
   }
 
 }
