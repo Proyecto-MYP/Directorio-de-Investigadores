@@ -8,8 +8,8 @@ import { ConfigService } from '../config.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  projectAcronym;
   contracted = false;
+  projectAcronym;
   navLinks;
 
   constructor(
@@ -19,7 +19,6 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
     this.projectAcronym = this.site.getProjectAcronym();
-
     if (localStorage.getItem('remNav')) { this.toggleNav(); }
     onresize = this.onResize;
     this.navLinks = [
@@ -68,34 +67,25 @@ export class NavComponent implements OnInit {
 
   toggleNav() {
     this.contracted = !this.contracted;
-    const $header: HTMLElement = document.getElementsByTagName('header')[0];
     const $caret: HTMLElement = document.querySelector('#contract-btn>a');
 
     if (this.contracted) {
       // Contraer el nav
       localStorage.setItem('remNav', '1');
-      $header.classList.add('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-right"></i>';
     } else {
       // Expandir el nav
       localStorage.removeItem('remNav');
-      $header.classList.remove('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-left"></i>';
     }
     return false;
   }
 
-  showResponsiveMenu() {
-    const $header: HTMLElement = document.getElementsByTagName('header')[0];
-    $header.classList.toggle('show');
-  }
-
   onResize() {
-    const $header: HTMLElement = document.getElementsByTagName('header')[0];
-    if (innerWidth < 768) {
-      $header.classList.remove('contracted');
+    if ( innerWidth < 768 ) {
+      this.contracted = true;
     } else {
-      $header.classList.remove('show');
+      this.contracted = !!localStorage.getItem('remNav');
     }
   }
 

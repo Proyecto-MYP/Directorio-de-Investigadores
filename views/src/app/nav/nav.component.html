@@ -1,10 +1,10 @@
-<header>
+<header [ngClass]="{'contracted': contracted, 'show': !contracted}">
   <div id="main-nav">
     <a id="header-link" routerLink="/"><i class="fab fa-connectdevelop"></i></a>
     <nav>
       <ul>
         <li *ngFor="let link of navLinks">
-          <a routerLink="{{ link.route }}">
+          <a routerLink="{{ link.route }}" (click)="toggleNav()">
             <i class="fas {{ link.icon }}"></i>
             <span class="nav-label">{{ link.text }}</span>
           </a>
@@ -20,7 +20,7 @@
 </header>
 
 <div id="bars">
-  <button type="button" id="bars-btn" (click)="showResponsiveMenu()">
+  <button type="button" id="bars-btn" (click)="toggleNav()">
     <i class="fas fa-bars"></i>
   </button>
   <h1>
