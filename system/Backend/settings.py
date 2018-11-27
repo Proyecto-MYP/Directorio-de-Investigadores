@@ -100,7 +100,7 @@ DATABASES = {
         'NAME': 'project',
         'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'directorio-de-investigadores_postgres_1',
+        'HOST': 'postgres',
     }
 }
 
