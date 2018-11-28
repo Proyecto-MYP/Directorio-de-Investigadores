@@ -69,7 +69,7 @@ input{
 .mat-raised-button{
     &:hover{
         background-color: $main-theme-color;
-        color: white;
+        color: white !important;
     }
 }
 

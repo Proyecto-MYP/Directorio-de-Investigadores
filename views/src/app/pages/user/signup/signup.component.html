@@ -1,4 +1,4 @@
-<form [formGroup]="signupForm" novalidate (ngSubmit)="registerUser()">
+<form id="wrapper" *ngIf="!success" [formGroup]="signupForm" novalidate (ngSubmit)="registerUser()">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Regístrate</mat-card-title>
@@ -61,3 +61,25 @@
     </mat-card-footer>
   </mat-card>
 </form>
+
+<div id="wrapper" *ngIf="success">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Registro exitoso
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-icon id="done-icon">done_outline</mat-icon>
+      <p>
+        Tu petición para unirte ha sido enviada con éxito, en los próximos días recibirás un correo electrónico a la dirección <span class="email">{{ confirmEmail }}</span> con el que será confirmado tu registro y así poder der parte del {{ projectName }}.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a routerLink="/" mat-raised-button>
+        <mat-icon>arrow_back</mat-icon>
+        Ir al inicio
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { NewUser } from 'src/app/interfaces/newUser.interface';
+import { ConfigService } from 'src/app/config.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,16 +11,21 @@ import { NewUser } from 'src/app/interfaces/newUser.interface';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  confirmEmail;
   signupForm: FormGroup;
+  projectName;
+  success = false;
   token;
 
   constructor(
     private userService: UserService,
-    private titleService: Title
+    private titleService: Title,
+    private site: ConfigService
   ) {}
 
   ngOnInit() {
     this.titleService.setTitle('Regístrate');
+    this.projectName = this.site.getProjectName();
     this.signupForm = new FormGroup({
       username: new FormControl('', [
         Validators.minLength(4),
@@ -55,10 +61,11 @@ export class SignupComponent implements OnInit {
       password1: data.password.pass1,
       password2: data.password.pass2
     };
-    console.log(typeof user, user);
+
     this.userService.registerUser(user).subscribe(data => {
       this.token = data['token'];
-      console.log('token', this.token);
+      this.confirmEmail = user.email;
+      this.success = true;
     });
   }
 
