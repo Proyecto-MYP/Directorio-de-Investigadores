@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  loginForm: FormGroup;
 
   constructor(
     private titleService: Title,
@@ -16,11 +18,20 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle('Iniciar sesión');
+
+    this.loginForm = new FormGroup({
+      email: new FormControl('', [
+        Validators.required,
+        Validators.pattern('[^ @]*@[^ @]*')
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8)
+      ])
+    });
   }
 
   login() {
-    const correo = document.getElementById('correo') as HTMLInputElement;
-    const contra = document.getElementById('contra') as HTMLInputElement;
-    this.usrSrv.login(correo.value, contra.value);
+    console.log('Form submitted');
   }
 }

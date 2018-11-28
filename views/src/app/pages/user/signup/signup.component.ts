@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
+import { NewUser } from 'src/app/interfaces/newUser.interface';
 
 @Component({
   selector: 'app-signup',
@@ -8,23 +10,56 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  signupForm: FormGroup;
+  token;
 
   constructor(
-    private titleService: Title,
-    private usrSrv:       UserService
+    private userService: UserService,
+    private titleService: Title
   ) {}
 
   ngOnInit() {
     this.titleService.setTitle('Regístrate');
+    this.signupForm = new FormGroup({
+      username: new FormControl('', [
+        Validators.minLength(4),
+        Validators.pattern('[a-z0-9^\S]*')
+      ]),
+      email: new FormControl('', [
+        Validators.pattern('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+      ]),
+      password: new FormGroup({
+        pass1: new FormControl('', [
+          Validators.pattern('[a-zA-Z0-9^\S]*'),
+          Validators.minLength(8)
+        ]),
+        pass2: new FormControl('', [
+          Validators.pattern('[a-zA-Z0-9^\S]*'),
+          Validators.minLength(8)
+        ])
+      })
+    });
+  }
+
+  matchPasswords(group: FormGroup) {
+    const pass1 = group.controls.pass1.value;
+    const pass2 = group.controls.pass2.value;
+    return pass1 === pass2;
   }
 
   registerUser() {
-    const username = document.getElementById('username') as HTMLInputElement;
-    const email = document.getElementById('email') as HTMLInputElement;
-    const password = document.getElementById('password') as HTMLInputElement;
-    const password_confirmation = document.getElementById('password_confirmation') as HTMLInputElement;
-
-    this.usrSrv.registerUser(username.value, email.value, password.value, password_confirmation.value);
+    const data = this.signupForm.value;
+    const user: NewUser = {
+      email: data.email,
+      username: data.username,
+      password1: data.password.pass1,
+      password2: data.password.pass2
+    };
+    console.log(typeof user, user);
+    this.userService.registerUser(user).subscribe(data => {
+      this.token = data['token'];
+      console.log('token', this.token);
+    });
   }
 
 }
