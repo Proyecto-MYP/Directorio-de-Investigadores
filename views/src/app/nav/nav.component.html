@@ -4,7 +4,7 @@
     <nav>
       <ul>
         <li *ngFor="let link of navLinks">
-          <a routerLink="{{ link.route }}" (click)="toggleNav()">
+          <a routerLink="{{ link.route }}" (click)="toggleNav(true)">
             <i class="fas {{ link.icon }}"></i>
             <span class="nav-label">{{ link.text }}</span>
           </a>

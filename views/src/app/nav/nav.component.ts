@@ -65,7 +65,11 @@ export class NavComponent implements OnInit {
     }
   }
 
-  toggleNav() {
+  toggleNav(fromLink?: boolean) {
+    if (fromLink && innerWidth >= 768){
+      return;
+    }
+
     this.contracted = !this.contracted;
     const $caret: HTMLElement = document.querySelector('#contract-btn>a');
 
