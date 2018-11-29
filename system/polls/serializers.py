@@ -32,23 +32,12 @@ class GroupSerializer(serializers.ModelSerializer):
 class BranchSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Branch
-        fields = ('id_branch', 'institution', 'name', 'state', 'created_at')
+        fields = ('id_branch', 'institution', 'name', 'acronym', 'state', 'picture', 'description', 'created_at')
 
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Article
         fields = ('id_article', 'title', 'authors', 'created_at')
-
-class DepartmentSerializer(serializers.ModelSerializer):
-    researchers = serializers.HyperlinkedRelatedField(
-    many = True,
-    read_only = True,
-    view_name = 'researcher-detail'
-    )
-    class Meta:
-        model = models.Department
-        fields = ('id_department', 'name', 'phone_number', 'adress', 'branch',
-		'researchers', 'created_at')
 
 class ResearcherSerializer(serializers.ModelSerializer):
     students = serializers.HyperlinkedRelatedField(
@@ -63,7 +52,7 @@ class ResearcherSerializer(serializers.ModelSerializer):
     )
     class Meta:
         model = models.Researcher
-        fields = ('id_researcher', 'person', 'department', 'students', 'leader',
+        fields = ('id_researcher', 'person', 'students', 'leader',
 		'created_at')
 
 class StudentSerializer(serializers.ModelSerializer):
@@ -74,4 +63,4 @@ class StudentSerializer(serializers.ModelSerializer):
 class StateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.States
-        fields = ('id_state','name', 'slug', 'created_at')
+        fields = ('id_state','name', 'slug')

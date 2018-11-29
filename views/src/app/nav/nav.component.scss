@@ -133,11 +133,13 @@ ul{
 }
 
 .show{
-    margin: 0;
-    margin-top: 4rem;
-    margin-bottom: -4rem;
-    height: auto;
-    #header-link{
-        display: none !important;
+    @media(max-width: $md){
+        margin: 0;
+        margin-top: 4rem;
+        margin-bottom: -4rem;
+        height: auto;
+        #header-link{
+            display: none !important;
+        }
     }
 }

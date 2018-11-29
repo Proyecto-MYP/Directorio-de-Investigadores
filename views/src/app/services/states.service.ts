@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ConfigService } from '../config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,13 @@ import { HttpClient } from '@angular/common/http';
 export class StatesService {
 
   constructor(
+    private site: ConfigService,
     private http: HttpClient
   ) { }
 
   getStates() {
-    return this.http.get('http://localhost:8000/states/');
+    const url = this.site.getApiUrl() + 'states/';
+    return this.http.get(url);
   }
 
   getHash() {
@@ -26,13 +29,18 @@ export class StatesService {
     return hash;
   }
 
-  getName(idState: string) {
-    const hash = this.getHash();
-    return hash[idState];
+  getState(idState: string) {
+    const apiUrl = this.site.getApiUrl();
+    return this.http.get(`${apiUrl}states/${idState}/`);
   }
 
-  getStatesDetails(){
-    return [{}];
+  getStateDetails(idState: string) {
+    const apiUrl = this.site.getApiUrl();
+    return this.http.get(`${apiUrl}branch/?state=${idState}`);
+  }
+
+  getStatesDetails() {
+    return [];
   }
 
 }

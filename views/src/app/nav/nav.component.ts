@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { ConfigService } from '../config.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,15 +8,17 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
   contracted = false;
+  projectAcronym;
   navLinks;
 
   constructor(
+    private site: ConfigService,
     private usrSrv: UserService
   ) { }
 
   ngOnInit() {
+    this.projectAcronym = this.site.getProjectAcronym();
     if (localStorage.getItem('remNav')) { this.toggleNav(); }
     onresize = this.onResize;
     this.navLinks = [
@@ -62,36 +65,31 @@ export class NavComponent implements OnInit {
     }
   }
 
-  toggleNav() {
+  toggleNav(fromLink?: boolean) {
+    if (fromLink && innerWidth >= 768){
+      return;
+    }
+
     this.contracted = !this.contracted;
-    const $header: HTMLElement = document.getElementsByTagName('header')[0];
     const $caret: HTMLElement = document.querySelector('#contract-btn>a');
 
     if (this.contracted) {
       // Contraer el nav
       localStorage.setItem('remNav', '1');
-      $header.classList.add('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-right"></i>';
     } else {
       // Expandir el nav
       localStorage.removeItem('remNav');
-      $header.classList.remove('contracted');
       $caret.innerHTML = '<i class="fas fa-caret-left"></i>';
     }
     return false;
   }
 
-  showResponsiveMenu() {
-    const $header: HTMLElement = document.getElementsByTagName('header')[0];
-    $header.classList.toggle('show');
-  }
-
   onResize() {
-    const $header: HTMLElement = document.getElementsByTagName('header')[0];
-    if (innerWidth < 768) {
-      $header.classList.remove('contracted');
+    if ( innerWidth < 768 ) {
+      this.contracted = true;
     } else {
-      $header.classList.remove('show');
+      this.contracted = !!localStorage.getItem('remNav');
     }
   }
 

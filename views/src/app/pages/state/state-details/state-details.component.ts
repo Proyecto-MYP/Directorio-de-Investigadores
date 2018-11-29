@@ -11,6 +11,7 @@ import { StatesService } from 'src/app/services/states.service';
 export class StateDetailsComponent implements OnInit {
   idState:   string;
   stateName: string;
+  stateDetails;
 
   constructor(
     private titleService: Title,
@@ -20,8 +21,13 @@ export class StateDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.idState = this.route.snapshot.paramMap.get('key');
-    this.stateName = this.statesSrv.getName(this.idState);
-    this.titleService.setTitle(this.stateName);
+    this.statesSrv.getState(this.idState).subscribe(data => {
+      this.stateName = data['name'];
+      this.titleService.setTitle(this.stateName);
+    });
+    this.statesSrv.getStateDetails(this.idState).subscribe(data => {
+      this.stateDetails = data;
+    });
   }
 
 }

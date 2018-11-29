@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ConfigService } from 'src/app/config.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,16 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  projectName;
 
-  constructor(private titleService: Title) { }
+  constructor(
+    private site: ConfigService,
+    private titleService: Title
+  ) { }
 
   ngOnInit() {
-    this.titleService.setTitle('Directorio Mexicano de Investigadores');
+    this.projectName = this.site.getProjectName();
+    this.titleService.setTitle(this.projectName);
   }
 
 }

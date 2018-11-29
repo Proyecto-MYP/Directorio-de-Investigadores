@@ -1,20 +1,35 @@
-<div id="wrapper">
+<form [formGroup]="loginForm" novalidate (ngSumbit)="login()">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Iniciar sesión</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
         <mat-form-field>
-          <input id="correo" type="email" matInput placeholder="Correo" />
+          <input
+            matInput
+            formControlName="email"
+            type="email"
+            placeholder="Correo electrónico"
+            required
+          />
         </mat-form-field>
         <mat-form-field>
-          <input id="contra" type="password" matInput placeholder="Contraseña" />
+          <input
+            matInput
+            formControlName="password"
+            type="password"
+            placeholder="Contraseña"
+            required
+          />
         </mat-form-field>
-      </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="login()">
+      <button mat-raised-button type="reset">
+        <mat-icon>restore</mat-icon>
+        Limpiar
+      </button>
+      <button [disabled]="!loginForm.valid" mat-raised-button type="submit">
+        <mat-icon>done</mat-icon>
         Acceder
       </button>
     </mat-card-actions>
@@ -25,4 +40,4 @@
       </small>
     </mat-card-footer>
   </mat-card>
-</div>
+</form>

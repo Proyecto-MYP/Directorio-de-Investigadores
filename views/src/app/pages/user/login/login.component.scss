@@ -1,8 +1,8 @@
 @import '~src/variables';
 
-#wrapper{
+form{
+    height: 100vh;
     @media(min-width: $md){
-        height: 97vh;
         position: relative;
         &::before{
             background-image: url('~src/assets/img/login-bg.jpg');
@@ -22,7 +22,6 @@
         }
     }
     @media(min-width: $lg){
-        height: 99vh;
         &::before{
             background-size: cover;
         }

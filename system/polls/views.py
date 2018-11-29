@@ -28,11 +28,6 @@ class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ArticleSerializer
     filter_fields = ('id_article', 'title', 'authors')
 
-class DepartmentViewSet(viewsets.ModelViewSet):
-    queryset = models.Department.objects.all()
-    serializer_class = serializers.DepartmentSerializer
-    filter_fields = ('id_department', 'name', 'phone_number', 'adress', 'branch', 'researchers')
-
 class ResearcherViewSet(viewsets.ModelViewSet):
     queryset = models.Researcher.objects.all()
     serializer_class = serializers.ResearcherSerializer

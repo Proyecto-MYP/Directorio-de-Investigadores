@@ -1,26 +1,55 @@
-<div id="wrapper">
+<form id="wrapper" *ngIf="!success" [formGroup]="signupForm" novalidate (ngSubmit)="registerUser()">
   <mat-card>
     <mat-card-header>
       <mat-card-title>Regístrate</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="username"
+          type="text"
+          placeholder="Nombre de usuario"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="email"
+          type="email"
+          placeholder="Correo electrónico"
+          required
+        />
+      </mat-form-field>
+      <div formGroupName="password">
         <mat-form-field>
-          <input id="username" type="text" matInput placeholder="Nombre de usuario"/>
+          <input
+            matInput
+            formControlName="pass1"
+            type="password"
+            placeholder="Contraseña"
+            required
+          />
         </mat-form-field>
         <mat-form-field>
-          <input id="email" type="email" matInput placeholder="Correo electrónico" />
+          <input
+            matInput
+            formControlName="pass2"
+            type="password"
+            placeholder="Confirmar contraseña"
+            required
+          />
         </mat-form-field>
-        <mat-form-field>
-          <input id="password" type="password" matInput placeholder="Contraseña" />
-        </mat-form-field>
-        <mat-form-field>
-          <input id="password_confirmation" type="password" matInput placeholder="Confirmar contraseña" />
-        </mat-form-field>
-      </form>
+      </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button (click)="registerUser()">
+      <button mat-raised-button type="reset">
+        <mat-icon>restore</mat-icon>
+        Limpiar
+      </button>
+      <button [disabled]="!signupForm.valid" mat-raised-button type="submit">
+        <mat-icon>done</mat-icon>
         Registrar
       </button>
     </mat-card-actions>
@@ -30,5 +59,27 @@
         <a routerLink="/login">Inicia sesión</a>
       </small>
     </mat-card-footer>
+  </mat-card>
+</form>
+
+<div id="wrapper" *ngIf="success">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Registro exitoso
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-icon id="done-icon">done_outline</mat-icon>
+      <p>
+        Tu petición para unirte ha sido enviada con éxito, en los próximos días recibirás un correo electrónico a la dirección <span class="email">{{ confirmEmail }}</span> con el que será confirmado tu registro y así poder der parte del {{ projectName }}.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a routerLink="/" mat-raised-button>
+        <mat-icon>arrow_back</mat-icon>
+        Ir al inicio
+      </a>
+    </mat-card-actions>
   </mat-card>
 </div>
