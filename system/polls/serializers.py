@@ -2,22 +2,10 @@ from rest_framework import serializers
 from . import models
 
 class PersonSerializer(serializers.ModelSerializer):
-    groups = serializers.HyperlinkedRelatedField(
-    many = True,
-    read_only = True,
-    view_name = 'group-detail'
-    )
-    articles = serializers.HyperlinkedRelatedField(
-    many = True,
-    read_only = True,
-    view_name = 'article-detail'
-    )
     class Meta:
         model = models.Person
         fields = (
-		'id_person', 'name', 'birthdate', 'mail', 'phone_number',
-		'articles', 'groups', 'created_at'
-		)
+		'id_person', 'first_name', 'last_name', 'email', 'picture', 'created_at')
 
 class InstitutionSerializer(serializers.ModelSerializer):
     class Meta:
