@@ -15,8 +15,7 @@ class PersonSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Person
         fields = (
-		'id_person', 'name', 'birthdate', 'mail', 'phone_number',
-		'articles', 'groups', 'created_at'
+		'id_person', 'first_name', 'last_name', 'email', 'picture','created_at','articles','groups'
 		)
 
 class InstitutionSerializer(serializers.ModelSerializer):
