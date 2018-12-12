@@ -3,4 +3,12 @@
 	-Ejecutar el comando: docker-compose up
 Con estos pasos el servidor ya deja de correr en el server de Django y corre en Gunicorn
 
-para ver el api rest se debe cambiar el url a localhost:8000
+Ahora para hacer las migraciones:
+	-docker ps
+	-copiar el id de "directorio-de-investigadores_djangoapp02"
+	-docker exec -it <id de la imagen> bash
+	Se abrira una shell dentro del contenedor.
+	-cd system/
+	-python manage.py makemigrations polls
+	-python manage.py makemigrations users
+	-python manage.py migrate
