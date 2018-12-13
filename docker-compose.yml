@@ -1,18 +1,41 @@
 version: '3'
 services:
-  django:
-    build: .
-    ports:
-     - "8000:8000"
-    links:
-      - postgres
   postgres:
+    container_name: postgres
     image: "postgres"
     environment:
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=project
-    #volumes:
-    #  - ./db:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - my-network
 
+  djangoapp02:
+    container_name: djangoapp02
+    build: .
+    networks:
+      - my-network
+    depends_on:
+      - postgres
+    ports:
+      - 8000:8000
+      - 8080:8000
+
+  nginx:
+    container_name: nginx
+    image: nginx:1.13
+    ports:
+      - 80:8004
+    volumes:
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - djangoapp02
+    networks:
+      - my-network
+
+  atom:
+    container_name: atom
+    image: "jamesnetherton/docker-atom-editor"
+networks:
+  my-network:

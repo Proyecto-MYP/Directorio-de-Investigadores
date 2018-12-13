@@ -5,7 +5,7 @@ from . import serializers
 class PersonViewSet(viewsets.ModelViewSet):
     queryset = models.Person.objects.all()
     serializer_class = serializers.PersonSerializer
-    filter_fields = ('id_person', 'name', 'birthdate', 'mail', 'phone_number', 'articles', 'groups')
+    filter_fields = ('id_person', 'first_name', 'last_name', 'email', 'picture', 'created_at','articles','groups')
 
 class InstitutionViewSet(viewsets.ModelViewSet):
     queryset = models.Institution.objects.all()

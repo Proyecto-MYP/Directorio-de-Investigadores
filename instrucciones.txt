@@ -1,10 +1,14 @@
 	-Instalar docker https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository
 	-instalar docker-compose (en caso de ser necesario)
-	-Ejecutar el comando: docker-compose up 
-	-Una vez que se termine de crear el contenedor ejecutar:
-		docker-compose exec django  python system/manage.py makemigrations users
-		docker-compose exec django  python system/manage.py makemigrations polls
-		docker-compose exec django  python system/manage.py migrate
-
+	-Ejecutar el comando: docker-compose up
 Con estos pasos el servidor ya deja de correr en el server de Django y corre en Gunicorn
 
+Ahora para hacer las migraciones:
+	-docker ps
+	-copiar el id de "directorio-de-investigadores_djangoapp02"
+	-docker exec -it <id de la imagen> bash
+	Se abrira una shell dentro del contenedor.
+	-cd system/
+	-python manage.py makemigrations polls
+	-python manage.py makemigrations users
+	-python manage.py migrate
