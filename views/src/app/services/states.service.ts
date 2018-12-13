@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { ConfigService } from '../config.service';
 
 @Injectable({
@@ -39,8 +40,9 @@ export class StatesService {
     return this.http.get(`${apiUrl}branch/?state=${idState}`);
   }
 
-  getStatesDetails() {
-    return [];
+  getBranches() {
+    const apiUrl = this.site.getApiUrl();
+    return this.http.get(apiUrl + 'branch/');
   }
 
 }
