@@ -1,21 +1,13 @@
 <h1>Distribución de Instituciones</h1>
-<div *ngIf="statesDetails" class="states-list">
-  <mat-list>
-    <mat-list-item *ngFor="let state of statesDetails">
-      <mat-icon mat-list-icon>school</mat-icon>
-      <h2 mat-line>
-        <a routerLink="/estado/{{state.idState}}">{{ state.stateName }}</a>
-      </h2>
-      <p mat-line>
-        Instituciones en este estado: {{ state.numBranches }}
-      </p>
-      <a mat-raised-button routerLink="/estado/{{state.idState}}">
-        Ver detalles
+<div class="states-list">
+  <mat-card  *ngFor="let state of statesOverviews">
+    <mat-card-title>
+      <a routerLink="{{state.id_state}}">
+        {{state.name}}
       </a>
-      <mat-divider></mat-divider>
-    </mat-list-item>
-  </mat-list>
-</div>
-<div *ngIf="!statesDetails">
-  <h3>No hay datos disponibles</h3>
+    </mat-card-title>
+    <mat-card-content>
+      Número de instituciones: {{state.branches}}
+    </mat-card-content>
+  </mat-card>
 </div>
