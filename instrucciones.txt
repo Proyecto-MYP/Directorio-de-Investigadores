@@ -12,3 +12,8 @@ Ahora para hacer las migraciones:
 	-python manage.py makemigrations polls
 	-python manage.py makemigrations users
 	-python manage.py migrate
+
+Para levantar el front, que por ahora sigue como una imagen aparte:
+	-cambiar al directorio de views/
+	-docker build -t my-angular-project:prod .
+	-docker run -p 80:80 my-angular-project:dev

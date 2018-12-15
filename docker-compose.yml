@@ -33,9 +33,12 @@ services:
       - djangoapp02
     networks:
       - my-network
-
-  atom:
-    container_name: atom
-    image: "jamesnetherton/docker-atom-editor"
+  angular:
+    container_name: angular
+    build: ./views/
+    networks:
+      - my-network
+    ports:
+      - 80
 networks:
   my-network:
